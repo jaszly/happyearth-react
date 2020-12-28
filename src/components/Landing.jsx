@@ -5,7 +5,7 @@ import "../styles/landing.css";
 import TopNav from "./Nav-Top.jsx";
 // import Spots from "./Spots.jsx";
 
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Carousel, Col, Container, Row } from "react-bootstrap";
 
 class Landing extends React.Component {
   state = {
@@ -122,51 +122,49 @@ class Landing extends React.Component {
             </div>
           </div>
         </div>
+        <Container style={{ margin: "30vh 45vw" }}>
+          <Row></Row>
+        </Container>
         <div>
-          <div className="center-box">
-            <div className="grid five">
-              <h2 className="secondary" style={{ color: "black" }}>
-                Browse Happy Earth's Top Reviewed Cities:
-              </h2>{" "}
-              <Card
+          <div>
+            <h2 className="secondary" style={{ color: "black" }}>
+              Browse Happy Earth's Top Reviewed Cities:
+            </h2>{" "}
+            <Card
+              style={{
+                // width: "10vw",
+                height: "40vh",
+                background: "#FFFFFF",
+                border: "1px solid #E0E0E0",
+                borderRadius: "30px",
+                margin: "30px 100px",
+              }}
+            >
+              <Card.Img
                 style={{
-                  width: "30vw",
-                  height: "80vh",
-                  background: "#FFFFFF",
-                  border: "1px solid #E0E0E0",
-                  borderRadius: "30px",
-                  margin: "30px 100px",
+                  padding: "20px 20px 0px 20px",
+                  borderRadius: "4px",
+                  marginBottom: "0px",
                 }}
-              >
-                <Card.Img
+                variant="top"
+                src="https://source.unsplash.com/tPf-9_uMIeU"
+              />
+              <Card.Body>
+                <Button
+                  variant="link"
                   style={{
-                    padding: "20px 20px 0px 20px",
-                    borderRadius: "4px",
-
-                    marginBottom: "0px",
+                    height: "30px",
+                    borderRadius: "12px",
+                    borderColor: "#000",
+                    marginLeft: "1px",
+                    padding: "0 3px 3px 0",
                   }}
-                  variant="top"
-                  src="https://source.unsplash.com/tPf-9_uMIeU"
-                />
-                <Card.Body>
-                  <Button
-                    variant="link"
-                    style={{
-                      height: "30px",
-                      borderRadius: "12px",
-                      borderColor: "#000",
-                      marginLeft: "1px",
-                      padding: "0 3px 3px 0",
-                    }}
-                  >
-                    $type of spot{" "}
-                  </Button>
-                  <Card.Title style={{ marginTop: "10px" }}>
-                    $City Name, $State
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-            </div>
+                >
+                  $type of spot{" "}
+                </Button>
+                <Card.Title style={{ marginTop: "10px" }}></Card.Title>
+              </Card.Body>
+            </Card>
           </div>
         </div>
       </>
