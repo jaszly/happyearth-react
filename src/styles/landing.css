@@ -92,14 +92,23 @@ h2,
   border: 1px solid;
   border-radius: 5px;
   overflow: hidden;
-  /* width: 350px; */
   margin-top: 25px;
-  width: 45vw;
-  border: none;
+  width: 40vw;
+  /* border: none; */
   /* font-size: 19px;
 	font-family: 'Jost'; */
   box-sizing: border-box;
-  padding: 10px;
+}
+
+.search-panel {
+  box-sizing: border-box;
+  /* position: absolute; */
+  width: 40vw;
+  top: 100%;
+  margin: -1vh 0 0 30vw;
+  left: 0px;
+  background: white;
+  z-index: 100;
 }
 
 .search-icon {
@@ -166,9 +175,10 @@ input:focus {
 }
 
 .dropdown .option {
-  padding: 20px;
-  border-top: 1px lightGrey solid;
+  padding: 4vh 4vw;
+  border: none;
   display: none;
+  text-align: left;
 }
 
 .dropdown .option:hover {

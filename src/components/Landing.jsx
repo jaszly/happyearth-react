@@ -80,7 +80,10 @@ class Landing extends React.Component {
               sustainable restaurants, shops and cafes.
             </h2>
 
-            <div className="center-search">
+            <div
+              className="center-search"
+              style={{ border: "1px solid rgb(213, 213, 213)" }}
+            >
               <i className="fas fa-search-location search-icon"></i>
               <input
                 className="center-searchBox"
@@ -97,22 +100,25 @@ class Landing extends React.Component {
                 }}
               ></input>
             </div>
-            {/*
+            <div className="search-panel">
+              {/*
 						1. insert dropdown with results
 						2. each option has onClick={this.selectOption}
 						*/}
-            <div className={this.dropdownStatus()}>
-              {this.state.options.map((option) => {
-                return (
-                  <div
-                    className="option"
-                    onClick={this.selectOption}
-                    id={option}
-                  >
-                    {option}
-                  </div>
-                );
-              })}
+              <div className={this.dropdownStatus()}>
+                {this.state.options.map((option) => {
+                  return (
+                    <div
+                      className="option"
+                      onClick={this.selectOption}
+                      id={option}
+                    >
+                      <i class="fas fa-map-marker-alt"></i>
+                      {option}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
