@@ -5,6 +5,21 @@
   /* background-color: rgba(255, 255, 255); */
 }
 
+.create-card {
+  width: 100%;
+  cursor: pointer;
+  background: green;
+  border: 1px solid #c9ccd9;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+  display: flex;
+  width: 100%;
+  flex: 1 1;
+  position: relative;
+  align-items: stretch;
+}
+
 a.card {
   text-decoration: none;
   color: black;

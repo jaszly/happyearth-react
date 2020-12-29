@@ -1,20 +1,30 @@
-.createheader {
-	text-align: center;
-	font-family: 'EB Garamond', serif;
-	font-size: 35px;
-}
-
+/* .createheader {
+  text-align: center;
+  font-family: "EB Garamond", serif;
+  font-size: 35px;
+} */
+/*
 .createform {
-	margin: 30px 0px;
-	width: 400px;
-	height: auto;
-	padding: 30px;
-	border-radius: 3px;
-	background-color: #effcef;
-	overflow-y: auto;
-}
-
+  margin: 30px 0px;
+  width: 400px;
+  height: auto;
+  padding: 30px;
+  border-radius: 3px;
+  background-color: #effcef;
+  overflow-y: auto;
+} */
+/*
 .createformfont {
-	font-family: 'EB Garamond', serif;
-	font-size: 18px;
-}
+  font-family: "EB Garamond", serif;
+  font-size: 18px;
+} */
+
+/* .create-card {
+  width: 100%;
+  cursor: pointer;
+  background: tomato;
+  border: 1px solid #c9ccd9;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+} */

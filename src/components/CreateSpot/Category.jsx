@@ -7,6 +7,7 @@ import {
   Accordion,
   Card,
   Button,
+  Row,
   Col,
   ProgressBar,
 } from "react-bootstrap";
@@ -110,27 +111,67 @@ class Category extends React.Component {
   render() {
     return (
       <div>
-        <Container>
-          <Form className="createform">
+        <Row>
+          <Col>
             <Link
-              className=" card link "
+              className="card link"
               to={`/create-${this.state.category.linkTitle}`}
+              style={{ maxWidth: "fit-content", height: "40vh" }}
             >
-              <div
-                className="image"
-                style={this.selectBackground(this.state.category.image)}
-              ></div>
-
-              <small style={{ textAlign: "center" }}>
+              <i
+                className={this.state.category.image}
+                style={{
+                  color: "#00988f",
+                  fontSize: "8vh",
+                  margin: "10vh 0 0 8vw",
+                }}
+              ></i>
+              <h1 style={{ margin: "1vh 1vw 0 3vw" }}>
                 {this.state.category.displayTitle}
-              </small>
-
+              </h1>
               <div>
-                <small>{this.state.category.about}</small>
+                <h6>{this.state.category.about}</h6>
               </div>
             </Link>
-          </Form>
-        </Container>
+          </Col>
+        </Row>
+
+        <Form className="createform" style={{ margin: "0 -10vh" }}>
+          <Link
+            className="card link "
+            to={`/create-${this.state.category.linkTitle}`}
+            style={{ padding: "25vh 3vw" }}
+          >
+            <div>
+              <i
+                style={{
+                  color: "#00988f",
+                  fontSize: "8vh",
+                  margin: "6vw 6vw 0 6vw",
+                }}
+                className={this.state.category.image}
+              >
+                {" "}
+              </i>
+            </div>
+
+            <h1 style={{ margin: "1vh" }}>
+              {this.state.category.displayTitle}
+            </h1>
+
+            <div>
+              <h6
+                style={{
+                  margin: "-2vh 2vw 0 2vw",
+                  fontSize: "100%",
+                  padding: "2vh",
+                }}
+              >
+                {this.state.category.about}
+              </h6>
+            </div>
+          </Link>
+        </Form>
       </div>
     );
   }

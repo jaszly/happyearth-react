@@ -118,13 +118,12 @@ class Create extends React.Component {
   render() {
     return (
       <div>
-        <Container>
-          <div className="grid four">
-            {this.state.categories.map((category) => (
-              <Category category={category} key={category._id} />
-            ))}
-          </div>
-        </Container>
+        //{" "}
+        <div className="grid four">
+          {this.state.categories.map((category) => (
+            <Category category={category} key={category._id} />
+          ))}
+        </div>
       </div>
     );
   }
