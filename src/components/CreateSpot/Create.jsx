@@ -118,7 +118,50 @@ class Create extends React.Component {
   render() {
     return (
       <div>
-        //{" "}
+        <Container>
+          <h1
+            style={{
+              fontFamily: "Jost",
+              color: "00988f",
+              fontSize: "50px",
+              letterSpacing: "3px",
+              textAlign: "left",
+              margin: "12vh 0 0",
+              textTransform: "capitalize",
+            }}
+          >
+            {" add a spot to happy earth"}
+          </h1>
+          <h1
+            style={{
+              fontFamily: "Jost",
+              color: "gray",
+              fontSize: "20px",
+              letterSpacing: "3px",
+              textAlign: "left",
+              margin: "2vh 0px -12vh",
+              textTransform: "capitalize",
+            }}
+          >
+            {
+              " become a happy earth contributor by adding and reviewing new spots"
+            }
+          </h1>
+        </Container>
+
+        <h1
+          style={{
+            fontFamily: "Jost",
+            color: "gray",
+            fontSize: "25px",
+            letterSpacing: "3px",
+            textAlign: "left",
+            margin: "2vh 0px -12vh",
+            textTransform: "capitalize",
+          }}
+        >
+          {" Step One. Choose the type of spot you're contributing:"}
+        </h1>
         <div className="grid four">
           {this.state.categories.map((category) => (
             <Category category={category} key={category._id} />
