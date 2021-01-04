@@ -123,7 +123,7 @@ class Category extends React.Component {
             boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.2)",
             maxHeight: "30vh",
             itemsAlign: "center",
-            margin: "35vh 0 0 4vw",
+            margin: "28vh 0 0 8vw",
             transition:
               "box-shadow .3s ease,background-color .3s ease,border-color .3",
           }}

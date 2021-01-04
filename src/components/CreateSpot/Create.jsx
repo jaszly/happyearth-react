@@ -9,7 +9,7 @@ import {
   Col,
   ProgressBar,
 } from "react-bootstrap";
-// import "../styles/create.css";
+import "../../styles/create.css";
 // import "../styles/universal.css";
 import Category from "./Category.jsx";
 import { Link, withRouter } from "react-router-dom";
@@ -117,7 +117,13 @@ class Create extends React.Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          width: " 87%",
+        }}
+      >
+        <ProgressBar now={50} className="infobar" />
+
         <Container>
           <h1
             style={{
@@ -147,21 +153,22 @@ class Create extends React.Component {
               " become a happy earth contributor by adding and reviewing new spots"
             }
           </h1>
+
+          <h1
+            style={{
+              fontFamily: "Jost",
+              color: "gray",
+              fontSize: "25px",
+              letterSpacing: "3px",
+              textAlign: "left",
+              margin: "20vh 0px -19vh",
+              textTransform: "capitalize",
+            }}
+          >
+            {" Step One. Choose the type of spot you're contributing:"}
+          </h1>
         </Container>
 
-        <h1
-          style={{
-            fontFamily: "Jost",
-            color: "gray",
-            fontSize: "25px",
-            letterSpacing: "3px",
-            textAlign: "left",
-            margin: "2vh 0px -12vh",
-            textTransform: "capitalize",
-          }}
-        >
-          {" Step One. Choose the type of spot you're contributing:"}
-        </h1>
         <div className="grid four">
           {this.state.categories.map((category) => (
             <Category category={category} key={category._id} />
