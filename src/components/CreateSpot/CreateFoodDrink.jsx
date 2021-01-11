@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 import {
   Container,
@@ -10,6 +9,7 @@ import {
   Row,
   ProgressBar,
 } from "react-bootstrap";
+import "../../styles/forms.css";
 
 class CreateFoodDrink extends React.Component {
   state = {
@@ -228,46 +228,59 @@ class CreateFoodDrink extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <Button variant="light" onClick={(e) => this.toggleTakeaway(e)}>
-            Add features{" "}
-          </Button>
+      <Container>
+        <h1
+          style={{
+            fontFamily: "Jost",
+            color: "00988f",
+            fontSize: "50px",
+            letterSpacing: "3px",
+            textAlign: "left",
+            margin: "12vh 0 0",
+            textTransform: "capitalize",
+          }}
+        >
+          {" add a spot to happy earth"}
+        </h1>
+        <h1
+          style={{
+            fontFamily: "Jost",
+            color: "gray",
+            fontSize: "20px",
+            letterSpacing: "3px",
+            textAlign: "left",
+            margin: "2vh 0px -12vh",
+            textTransform: "capitalize",
+          }}
+        >
+          {
+            " become a happy earth contributor by adding and reviewing new spots"
+          }
+        </h1>
+        <h1
+          style={{
+            fontFamily: "Jost",
+            color: "gray",
+            fontSize: "25px",
+            letterSpacing: "3px",
+            textAlign: "left",
+            margin: "20vh 0px -12vh",
+            textTransform: "capitalize",
+          }}
+        >
+          {"Add details:"}
+        </h1>
 
-          {this.state.spot.toggleTakeaways
-            ? this.state.takeaways.map((takeaway) => {
-                return (
-                  <label className="checkbox labelfont">
-                    <input
-                      type="checkbox"
-                      value={takeaway._id}
-                      onChange={(e) => this.checkBox(e)}
-                    />
-                    <i className={takeaway.icon}></i>
-                    <span>{takeaway.explanation}</span>
-                  </label>
-                );
-              })
-            : null}
-        </div>
-
-        <Container>
-          <Form.Group>
-            <Form className="createform">
-              <span style={{ fontSize: "20px", color: "gray" }}> </span>
-
-              <Form.Label>Details</Form.Label>
-
-              <Form.Control
-                size="sm"
-                type="text"
-                placeholder="Enter business name"
-              />
-              <br />
+        <Form style={{ marginTop: "15vh" }}>
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label>Business Name</Form.Label>
+              <Form.Control size="sm" type="text" />
+            </Form.Group>
+            <Form.Group as={Col}>
               <Form.Label> Subcategory </Form.Label>
               <Form.Control
                 size="sm"
-                placeholder="Subcategory"
                 as="select"
                 onChange={(e) => this.changeField(e, "types")}
               >
@@ -276,71 +289,89 @@ class CreateFoodDrink extends React.Component {
                 })}
                 >
               </Form.Control>
-              <br />
+            </Form.Group>
+          </Form.Row>
 
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label> Description </Form.Label>
+              <Form.Control as="textarea" type="text" rows={3} />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label> City </Form.Label>
+              <Form.Control size="sm" type="text" />
+            </Form.Group>
+
+            <Form.Group as={Col}>
+              <Form.Label>Neigborhood</Form.Label>
+
+              <Form.Control size="sm" type="text" />
+            </Form.Group>
+
+            <Form.Group as={Col}>
+              <Form.Label>Country</Form.Label>
+              <Form.Control size="sm" type="text" />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label> Lattitude </Form.Label>
               <Form.Control
-                as="textarea"
-                type="text"
-                placeholder="Note to dev: Come back to this^ figure out how to show subcategories in each type"
-                rows={3}
+                type="number"
+                value={this.state.spot.lat}
+                onChange={(e) => this.changeField(e, "lat")}
               />
+            </Form.Group>
 
-              <br />
-              <div>
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>Location</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="City" />
-                  </Form.Group>
+            <Form.Group as={Col}>
+              <Form.Label> Longitude </Form.Label>
+              <Form.Control
+                type="number"
+                value={this.state.spot.lng}
+                onChange={(e) => this.changeField(e, "lng")}
+              />
+            </Form.Group>
+          </Form.Row>
 
-                  <Form.Group as={Col} controlId="formGridNighborhood">
-                    <Form.Label> Neighborhood </Form.Label>
+          <Form.Row>
+            <Button variant="light" onClick={(e) => this.toggleTakeaway(e)}>
+              Add features{" "}
+            </Button>
+          </Form.Row>
 
-                    <Form.Control
-                      size="sm"
-                      type="text"
-                      placeholder="Neigborhood"
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="formGridCountry">
-                    <Form.Label> Country </Form.Label>
-
-                    <Form.Control size="sm" type="text" />
-                  </Form.Group>
-                </Form.Row>
-                <br />
-
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridLat">
-                    <Form.Label className="labelfont">Latitude</Form.Label>
-                    <Form.Control
-                      type="number"
-                      value={this.state.spot.lat}
-                      onChange={(e) => this.changeField(e, "lat")}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="formGridLng">
-                    <Form.Label className="labelfont">Longitude</Form.Label>
-                    <Form.Control
-                      type="number"
-                      value={this.state.spot.lng}
-                      onChange={(e) => this.changeField(e, "lng")}
-                    />
-                  </Form.Group>
-                </Form.Row>
-                <Row>
-                  <Col>
-                    <Link to="/landing">{"< Back"}</Link>
-                  </Col>
-                  <Col>
-                    <Link to="/add-features-1">{" Add Features >"}</Link>
-                  </Col>{" "}
-                </Row>
-              </div>
-            </Form>
-          </Form.Group>
-        </Container>
-      </div>
+          <Form.Row style={{ marginTop: "6vh", padding: "0, 2vw" }}>
+            {this.state.spot.toggleTakeaways
+              ? this.state.takeaways.map((takeaway) => {
+                  return (
+                    <Form.Label
+                      className="checkbox-container"
+                      style={{ padding: "0 2vw", fontSize: "16px" }}
+                    >
+                      {takeaway.explanation}
+                      <input
+                        style={{
+                          position: "absolute",
+                          opacity: "0",
+                          cursor: "pointer",
+                          height: "0",
+                          width: "0",
+                        }}
+                        type="checkbox"
+                        value={takeaway._id}
+                        onChange={(e) => this.checkBox(e)}
+                      />
+                      <span class="checkmark"></span>
+                    </Form.Label>
+                  );
+                })
+              : null}
+          </Form.Row>
+        </Form>
+      </Container>
     );
   }
 }
