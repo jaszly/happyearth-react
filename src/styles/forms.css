@@ -193,6 +193,12 @@ h2 + form {
   user-select: none;
 }
 
+li > .c-cli-items {
+  padding: 1vh 2vw;
+  font-size: 45px;
+  letter-spacing: 0px;
+  text-transform: lowercase;
+}
 /* Hide the browser's default checkbox */
 .checkbox-container input {
   position: absolute;
