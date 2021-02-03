@@ -150,6 +150,17 @@ a.card {
   font-size: 13px;
   /* margin-top: 3px; */
 }
+/* ////features cards "button" on create */
+.features-toggle {
+  height: 30vh;
+  width: 12vw;
+  padding: 2vh;
+}
+
+li {
+  list-style-type: none;
+}
+
 /*
 .card .location i {
 }
