@@ -241,25 +241,7 @@ class Spot extends React.Component {
             </Row>
             <Row style={{ margin: "10vh 3vw 3vh 5vw" }}>
               <small>Features:</small>
-              <div className="features">
-                {this.state.spot.features.map((feature) => {
-                  return (
-                    <Button
-                      variant="light"
-                      size="sm"
-                      style={{
-                        backgroundColor: "transparent",
-                        border: "1px solid #eeeeef",
-                        borderRadius: "14px",
-                        width: "10rem",
-                        fontSize: "12px",
-                      }}
-                    >
-                      {feature.name}
-                    </Button>
-                  );
-                })}
-              </div>
+
               <div>
                 {this.state.spot.toggleTakeaways ? (
                   <div>
