@@ -16,6 +16,7 @@ class CreateFoodDrink extends React.Component {
     user: {},
     category: {},
     spot: {
+      title: "",
       files: [],
       images: [],
       types: [],
@@ -312,7 +313,11 @@ class CreateFoodDrink extends React.Component {
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Business Name</Form.Label>
-              <Form.Control size="sm" type="text" />
+              <Form.Control
+                size="sm"
+                type="text"
+                onChange={(e) => this.changeField(e, "title")}
+              />
             </Form.Group>
             <Form.Group as={Col}>
               <Form.Label> Subcategory </Form.Label>
@@ -332,14 +337,23 @@ class CreateFoodDrink extends React.Component {
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label> Description </Form.Label>
-              <Form.Control as="textarea" type="text" rows={3} />
+              <Form.Control
+                as="textarea"
+                type="text"
+                rows={3}
+                onChange={(e) => this.changeField(e, "description")}
+              />
             </Form.Group>
           </Form.Row>
 
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label> City </Form.Label>
-              <Form.Control size="sm" type="text" />
+              <Form.Control
+                size="sm"
+                type="text"
+                onChange={(e) => this.changeField(e, "city")}
+              />
             </Form.Group>
 
             <Form.Group as={Col}>
@@ -350,7 +364,11 @@ class CreateFoodDrink extends React.Component {
 
             <Form.Group as={Col}>
               <Form.Label>Country</Form.Label>
-              <Form.Control size="sm" type="text" />
+              <Form.Control
+                size="sm"
+                type="text"
+                onChange={(e) => this.changeField(e, "country")}
+              />
             </Form.Group>
           </Form.Row>
 
@@ -614,6 +632,8 @@ class CreateFoodDrink extends React.Component {
               </li>
             </Form.Group>
           </Form.Row>
+          <Form.Label className="labelfont">Upload Photos</Form.Label>
+          <input type="file" onChange={this.getFile} multiple />
           <div className="centerbutton">
             <Button
               onClick={(e) => this.createPlace(e, this.state.spot)}
