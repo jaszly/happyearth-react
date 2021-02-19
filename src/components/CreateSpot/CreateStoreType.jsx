@@ -155,53 +155,28 @@ class CreateStoreType extends React.Component {
 
   render() {
     return (
-      <div style={{ margin: "10vh 25vw" }}>
-        <Container>
+      <div style={{ height: "150vh", backgroundColor: "#96ad9c" }}>
+        <Container style={{ padding: "15vh 20vw" }}>
           <h1
+            className="accent-co"
             style={{
               fontFamily: "Jost",
-              color: "00988f",
-              fontSize: "50px",
-              letterSpacing: "3px",
-              textAlign: "left",
-              textTransform: "capitalize",
+              fontSize: "45px",
+              letterSpacing: "4px",
+              textTransform: "uppercase",
+              marginBottom: "5vh",
             }}
           >
-            {" add a spot to happy earth"}
+            {" add a spot to ekoh"}
           </h1>
-          <h1
-            style={{
-              fontFamily: "Jost",
-              color: "gray",
-              fontSize: "20px",
-              letterSpacing: "3px",
-              textAlign: "left",
-              textTransform: "capitalize",
-            }}
-          >
-            {
-              " become a happy earth contributor by adding and reviewing new spots"
-            }
-          </h1>
-          <h1
-            style={{
-              fontFamily: "Jost",
-              color: "gray",
-              fontSize: "25px",
-              letterSpacing: "3px",
-              textAlign: "left",
-              textTransform: "capitalize",
-            }}
-          >
-            {"Add details:"}
-          </h1>{" "}
+
           <Form.Group>
             <Form>
               <Form.Row>
                 <Form.Group as={Col}>
                   <Form.Label>Business Name</Form.Label>
                   <Form.Control
-                    style={{ height: "4em" }}
+                    className="form-boxes form-sm"
                     size="sm"
                     type="text"
                     onChange={(e) => this.changeField(e, "title")}
@@ -210,7 +185,7 @@ class CreateStoreType extends React.Component {
                 <Form.Group as={Col}>
                   <Form.Label> Subcategory </Form.Label>
                   <Form.Control
-                    style={{ height: "4em" }}
+                    className="form-boxes form-sm"
                     size="sm"
                     as="select"
                     onChange={(e) => this.changeField(e, "subcategory")}
@@ -227,67 +202,112 @@ class CreateStoreType extends React.Component {
                 <Form.Group as={Col}>
                   <Form.Label> Description </Form.Label>
                   <Form.Control
-                    style={{ height: "8em" }}
+                    className="form-boxes form-lrg"
                     as="textarea"
                     type="text"
-                    rows={3}
+                    rows={6}
                     onChange={(e) => this.changeField(e, "description")}
                   />
                 </Form.Group>
               </Form.Row>
 
               <Form.Row>
-                <Form.Group as={Col} controlId="formGridCity">
-                  <Form.Label>City</Form.Label>
-                  <Form.Control
-                    style={{ height: "4em" }}
-                    size="sm"
-                    type="text"
-                    onChange={(e) => this.changeField(e, "city")}
-                  />
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridNighborhood">
-                  <Form.Label>Neighborhood</Form.Label>
-                  <Form.Control
-                    style={{ height: "4em" }}
-                    size="sm"
-                    type="text"
-                  />
-                </Form.Group>
                 <Form.Group as={Col} controlId="formGridCountry">
                   <Form.Label>Country</Form.Label>
                   <Form.Control
-                    style={{ height: "4em" }}
+                    name="country"
+                    className="countries order-alpha form-boxes form-sm"
+                    id="countryId"
                     size="sm"
-                    type="text"
+                    as="select"
                     onChange={(e) => this.changeField(e, "country")}
-                  />
+                  >
+                    {" "}
+                    <option value="">Select Country</option>
+                  </Form.Control>
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridCity">
+                  <Form.Label>Region</Form.Label>
+                  <Form.Control
+                    name="state"
+                    className="states order-alpha form-boxes form-sm"
+                    id="stateId"
+                    size="sm"
+                    as="select"
+                    onChange={(e) => this.changeField(e, "region")}
+                  >
+                    <option value="">Select Region or State</option>
+                  </Form.Control>
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridCity">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control
+                    name="city"
+                    className="cities order-alpha form-boxes form-sm"
+                    id="cityId"
+                    size="sm"
+                    as="select"
+                    onChange={(e) => this.changeField(e, "city")}
+                  >
+                    <option className="form-boxes form-sm" value="">
+                      Select City
+                    </option>
+                  </Form.Control>
                 </Form.Group>
               </Form.Row>
 
               <Form.Row>
-                <Form.Group as={Col} controlId="formGridLat">
-                  <Form.Label className="labelfont">Latitude</Form.Label>
-                  <Form.Control
-                    type="number"
-                    value={this.state.spot.lat}
-                    onChange={(e) => this.changeField(e, "lat")}
-                    style={{ height: "4em" }}
-                  />
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridLng">
-                  <Form.Label className="labelfont">Longitude</Form.Label>
-                  <Form.Control
-                    type="number"
-                    value={this.state.spot.lng}
-                    onChange={(e) => this.changeField(e, "lng")}
-                    style={{ height: "4em" }}
-                  />
-                </Form.Group>
+                <Col xs={8}>
+                  <Form.Group controlId="formGridNighborhood">
+                    <Form.Label>District/Neigborhood (Optional)</Form.Label>
+                    <Form.Control
+                      className="form-boxes form-sm"
+                      type="text"
+                      placeholder="Ex: CBD, Chinatown, Mission District, Lamai Beach"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col xs lg="2">
+                  <Form.Group controlId="formGridLat">
+                    <Form.Label className="labelfont">Latitude</Form.Label>
+                    <Form.Control
+                      className="form-boxes form-sm"
+                      type="number"
+                      value={this.state.spot.lat}
+                      onChange={(e) => this.changeField(e, "lat")}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col xs lg="2">
+                  <Form.Group controlId="formGridLng" className="col-xs-2">
+                    <Form.Label className="labelfont">Longitude</Form.Label>
+                    <Form.Control
+                      className="form-boxes form-sm"
+                      type="number"
+                      value={this.state.spot.lng}
+                      onChange={(e) => this.changeField(e, "lng")}
+                    />
+                  </Form.Group>
+                </Col>
               </Form.Row>
               <Row>
-                <Link to="/landing">{"< Back"}</Link>
+                <Link
+                  className="accent-co"
+                  to="/landing"
+                  style={{
+                    textDecoration: " none",
+                    backgroundColor: "transparent",
+                    fontFamily: "Jost",
+                    textTransform: "uppercase",
+                    letterSpacing: "4px",
+                    margin: "3vh",
+                    fontSize: ".8em",
+                  }}
+                >
+                  {"< Back"}
+                </Link>
               </Row>
             </Form>
           </Form.Group>
