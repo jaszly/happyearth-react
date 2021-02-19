@@ -66,7 +66,7 @@ class Category extends React.Component {
         .then((user) => {
           this.setState({ user: user.data });
           this.state.spot.spotters = this.state.user._id;
-          // this.state.spot.types = this.stae.types[0]._id;
+          // this.state.spot.types = this.state.types[0]._id;
           this.setState({ spot });
         })
         .catch((err) => console.log(err));
