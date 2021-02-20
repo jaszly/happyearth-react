@@ -10,7 +10,7 @@ import {
   ProgressBar,
 } from "react-bootstrap";
 import "../../styles/forms.css";
-
+import "../../styles/buttons.css";
 class CreateFoodDrink extends React.Component {
   state = {
     user: {},
@@ -267,383 +267,362 @@ class CreateFoodDrink extends React.Component {
 
   render() {
     return (
-      <Container>
-        <h1
-          style={{
-            fontFamily: "Jost",
-            color: "00988f",
-            fontSize: "50px",
-            letterSpacing: "3px",
-            textAlign: "left",
-            margin: "12vh 0 0",
-            textTransform: "capitalize",
-          }}
-        >
-          {" add a spot to happy earth"}
-        </h1>
-        <h1
-          style={{
-            fontFamily: "Jost",
-            color: "gray",
-            fontSize: "20px",
-            letterSpacing: "3px",
-            textAlign: "left",
-            margin: "2vh 0px -12vh",
-            textTransform: "capitalize",
-          }}
-        >
-          {
-            " become a happy earth contributor by adding and reviewing new spots"
-          }
-        </h1>
-        <h1
-          style={{
-            fontFamily: "Jost",
-            color: "gray",
-            fontSize: "25px",
-            letterSpacing: "3px",
-            textAlign: "left",
-            margin: "20vh 0px -12vh",
-            textTransform: "capitalize",
-          }}
-        >
-          {"Add details:"}
-        </h1>{" "}
-        <Form style={{ marginTop: "15vh" }}>
-          <Form.Row>
-            <Form.Group as={Col}>
-              <Form.Label>Business Name</Form.Label>
-              <Form.Control
-                size="sm"
-                type="text"
-                onChange={(e) => this.changeField(e, "title")}
-              />
-            </Form.Group>
-            <Form.Group as={Col}>
-              <Form.Label> Subcategory </Form.Label>
-              <Form.Control
-                size="sm"
-                as="select"
-                onChange={(e) => this.changeField(e, "subcategory")}
-              >
-                {this.state.types.map((type) => {
-                  return <option value={type._id}>{type.name}</option>;
-                })}
-                >
-              </Form.Control>
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Row>
-            <Form.Group as={Col}>
-              <Form.Label> Description </Form.Label>
-              <Form.Control
-                as="textarea"
-                type="text"
-                rows={3}
-                onChange={(e) => this.changeField(e, "description")}
-              />
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Row>
-            <Form.Group as={Col}>
-              <Form.Label> City </Form.Label>
-              <Form.Control
-                size="sm"
-                type="text"
-                onChange={(e) => this.changeField(e, "city")}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col}>
-              <Form.Label>Neigborhood</Form.Label>
-
-              <Form.Control size="sm" type="text" />
-            </Form.Group>
-
-            <Form.Group as={Col}>
-              <Form.Label>Country</Form.Label>
-              <Form.Control
-                size="sm"
-                type="text"
-                onChange={(e) => this.changeField(e, "country")}
-              />
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Row>
-            <Form.Group as={Col}>
-              <Form.Label> Lattitude </Form.Label>
-              <Form.Control
-                type="number"
-                value={this.state.spot.lat}
-                onChange={(e) => this.changeField(e, "lat")}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col}>
-              <Form.Label> Longitude </Form.Label>
-              <Form.Control
-                type="number"
-                value={this.state.spot.lng}
-                onChange={(e) => this.changeField(e, "lng")}
-              />
-            </Form.Group>
-          </Form.Row>
+      <div style={{ height: "250vh", backgroundColor: "#96ad9c" }}>
+        <Container style={{ padding: "15vh 15vw" }}>
           <h1
+            className="accent-co"
             style={{
-              fontFamily: "Jost",
-              color: "gray",
-              fontSize: "25px",
-              letterSpacing: "3px",
-              textAlign: "left",
-              margin: "2vh 0 2vh",
-              textTransform: "capitalize",
+              fontSize: "45px",
+              letterSpacing: "4px",
+              textTransform: "uppercase",
+              marginBottom: "5vh",
             }}
           >
-            {"Add features:"}
+            {" add a spot to ekoh"}
           </h1>
 
-          <span
-            style={{
-              fontFamily: "Jost",
-              color: "gray",
-              fontSize: "15px",
-              letterSpacing: "3px",
-              textAlign: "left",
-              textTransform: "capitalize",
-            }}
-          >
-            Check the boxes for each type of product and practice offered by the
-            business
-          </span>
-          <Form.Row style={{ marginTop: "5vh" }}>
-            <Form.Group as={Col}>
-              <Button
-                as="Link"
-                className="card link features-toggle"
-                onClick={(e) => this.toggleTakeaway(e)}
-              >
-                <div
-                  className="avatar"
-                  style={{
-                    backgroundImage: `url(${"https://images.unsplash.com/photo-1609590981063-d495e2914ce4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"})`,
-                    width: "10vw",
-                    height: "20vh",
-                    backgroundPosition: "bottom",
-                  }}
-                ></div>
-                <span
-                  className="spotted-byuser"
-                  xs
-                  lg="2"
-                  style={{ color: "#000" }}
+          <Form>
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Form.Label>Business Name</Form.Label>
+                <Form.Control
+                  className="form-boxes form-sm"
+                  size="sm"
+                  type="text"
+                  onChange={(e) => this.changeField(e, "title")}
+                />
+              </Form.Group>
+              <Form.Group as={Col}>
+                <Form.Label> Subcategory </Form.Label>
+                <Form.Control
+                  className="form-boxes form-sm"
+                  size="sm"
+                  as="select"
+                  onChange={(e) => this.changeField(e, "subcategory")}
                 >
-                  {"Take Away"}
-                </span>
-              </Button>
-              <li style={{ textDecoration: "none", margin: "3vh" }}>
-                {this.state.spot.toggleTakeaways
-                  ? this.state.takeaways.map((takeaway) => {
-                      return (
-                        <Form.Label
-                          className="checkbox-container"
-                          style={{ padding: "0 2vw", fontSize: "16px" }}
-                        >
-                          {takeaway.explanation}
-                          <input
-                            style={{
-                              position: "absolute",
-                              opacity: "0",
-                              cursor: "pointer",
-                              height: "0",
-                              width: "0",
-                            }}
-                            type="checkbox"
-                            value={takeaway._id}
-                            onChange={(e) => this.checkBox(e)}
-                          />
-                          <span className="checkmark"></span>
-                        </Form.Label>
-                      );
-                    })
-                  : null}
-              </li>
-            </Form.Group>
-
-            <Form.Group as={Col}>
-              <Button
-                as="Link"
-                className="card link features-toggle"
-                onClick={(e) => this.toggleEatin(e)}
-              >
-                <div
-                  className="avatar"
-                  style={{
-                    backgroundImage: `url(${"https://images.unsplash.com/photo-1604326531570-2689ea7ae287?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"})`,
-                    width: "10vw",
-                    height: "20vh",
-                    backgroundPosition: "bottom",
-                  }}
-                ></div>
-                <span
-                  className="spotted-byuser"
-                  xs
-                  lg="2"
-                  style={{ color: "#000" }}
+                  {this.state.types.map((type) => {
+                    return <option value={type._id}>{type.name}</option>;
+                  })}
+                  >
+                </Form.Control>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Form.Label> Description </Form.Label>
+                <Form.Control
+                  className="form-boxes form-lrg"
+                  as="textarea"
+                  type="text"
+                  rows={6}
+                  onChange={(e) => this.changeField(e, "description")}
+                />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridCountry">
+                <Form.Label>Country</Form.Label>
+                <Form.Control
+                  name="country"
+                  className="countries order-alpha form-boxes form-sm"
+                  id="countryId"
+                  style={{ height: "3.5em" }}
+                  size="sm"
+                  as="select"
+                  onChange={(e) => this.changeField(e, "country")}
                 >
-                  Dine In{" "}
-                </span>
-              </Button>
-              <li style={{ textDecoration: "none", margin: "3vh" }}>
-                {this.state.spot.toggleEatins
-                  ? this.state.eatins.map((eatin) => {
-                      return (
-                        <Form.Label
-                          className="checkbox-container"
-                          style={{ padding: "0 2vw", fontSize: "16px" }}
-                        >
-                          {eatin.explanation}
-                          <input
-                            style={{
-                              position: "absolute",
-                              opacity: "0",
-                              cursor: "pointer",
-                              height: "0",
-                              width: "0",
-                            }}
-                            type="checkbox"
-                            value={eatin._id}
-                            onChange={(e) => this.checkBox2(e)}
-                          />
-                          <span className="checkmark"></span>
-                        </Form.Label>
-                      );
-                    })
-                  : null}
-              </li>
-            </Form.Group>
+                  <option value="">Select Country</option>
+                </Form.Control>
+              </Form.Group>
 
-            <Form.Group as={Col}>
-              <Button
-                as="Link"
-                className="card link features-toggle"
-                onClick={(e) => this.toggleDiet(e)}
-              >
-                <div
-                  className="avatar"
-                  style={{
-                    backgroundImage: `url(${"https://images.unsplash.com/photo-1558689509-900d3d3cc727?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1506&q=80"})`,
-                    width: "10vw",
-                    height: "20vh",
-                  }}
-                ></div>
-                <span
-                  className="spotted-byuser"
-                  xs
-                  lg="2"
-                  style={{ color: "#000", lineHeight: "3vh" }}
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Region</Form.Label>
+                <Form.Control
+                  name="state"
+                  className="states order-alpha form-boxes form-sm"
+                  id="stateId"
+                  style={{ height: "3.5em" }}
+                  size="sm"
+                  as="select"
+                  onChange={(e) => this.changeField(e, "region")}
                 >
-                  Diet Options
-                </span>
-              </Button>
+                  <option value="">Select Region or State</option>
+                </Form.Control>
+              </Form.Group>
 
-              <li style={{ textDecoration: "none" }}>
-                {this.state.spot.toggleDiets
-                  ? this.state.diets.map((diet) => {
-                      return (
-                        <Form.Label
-                          className="checkbox-container"
-                          style={{ padding: "0 2vw", fontSize: "16px" }}
-                        >
-                          {diet.name}
-                          <input
-                            style={{
-                              position: "absolute",
-                              opacity: "0",
-                              cursor: "pointer",
-                              height: "0",
-                              width: "0",
-                            }}
-                            type="checkbox"
-                            value={diet._id}
-                            onChange={(e) => this.checkBox3(e)}
-                          />
-                          <span className="checkmark"></span>
-                        </Form.Label>
-                      );
-                    })
-                  : null}
-              </li>
-            </Form.Group>
-
-            <Form.Group as={Col}>
-              <Button
-                as="Link"
-                className="card link features-toggle"
-                onClick={(e) => this.toggleEthic(e)}
-              >
-                <div
-                  className="avatar"
-                  style={{
-                    backgroundImage: `url(${"https://images.unsplash.com/photo-1559024094-4a1e4495c3c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"})`,
-                    width: "10vw",
-                    height: "20vh",
-                    backgroundPosition: "bottom",
-                  }}
-                ></div>
-                <span
-                  className="spotted-byuser"
-                  xs
-                  lg="2"
-                  style={{ color: "#000" }}
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  name="city"
+                  className="states order-alpha form-boxes form-sm"
+                  id="cityId"
+                  size="sm"
+                  as="select"
+                  onChange={(e) => this.changeField(e, "city")}
                 >
-                  Ethics
-                </span>
-              </Button>
+                  <option value="">Select City</option>
+                </Form.Control>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Col xs={8}>
+                <Form.Group controlId="formGridNighborhood">
+                  <Form.Label>District/Neigborhood (Optional)</Form.Label>
+                  <Form.Control
+                    className="form-boxes form-sm"
+                    type="text"
+                    placeholder="Ex: CBD, Chinatown, Mission District, Lamai Beach"
+                  />
+                </Form.Group>
+              </Col>
+              <Col xs lg="2">
+                <Form.Group controlId="formGridLat">
+                  <Form.Label className="labelfont">Latitude</Form.Label>
+                  <Form.Control
+                    className="form-boxes form-sm"
+                    type="number"
+                    value={this.state.spot.lat}
+                    onChange={(e) => this.changeField(e, "lat")}
+                    style={{ height: "3.5em" }}
+                  />
+                </Form.Group>
+              </Col>
+              <Col xs lg="2">
+                <Form.Group controlId="formGridLng" className="col-xs-2">
+                  <Form.Label className="labelfont">Longitude</Form.Label>
+                  <Form.Control
+                    className="form-boxes form-sm"
+                    type="number"
+                    value={this.state.spot.lng}
+                    onChange={(e) => this.changeField(e, "lng")}
+                  />
+                </Form.Group>
+              </Col>
+            </Form.Row>
 
-              <li style={{ textDecoration: "none" }}>
-                {this.state.spot.toggleEthics
-                  ? this.state.ethics.map((ethic) => {
-                      return (
-                        <Form.Label
-                          className="checkbox-container"
-                          style={{ padding: "0 2vw", fontSize: "16px" }}
-                        >
-                          {ethic.type}
-                          <input
-                            style={{
-                              position: "absolute",
-                              opacity: "0",
-                              cursor: "pointer",
-                              height: "0",
-                              width: "0",
-                            }}
-                            type="checkbox"
-                            value={ethic._id}
-                            onChange={(e) => this.checkBox4(e)}
-                          />
-                          <span className="checkmark"></span>
-                        </Form.Label>
-                      );
-                    })
-                  : null}
-              </li>
-            </Form.Group>
-          </Form.Row>
-          <Form.Label className="labelfont">Upload Photos</Form.Label>
-          <input type="file" onChange={this.getFile} multiple />
-          <div className="centerbutton">
-            <Button
-              onClick={(e) => this.createPlace(e, this.state.spot)}
-              style={{ margin: "25vh 35vw" }}
+            <Col
+              style={{
+                border: "1px dotted #d2ecf1",
+                borderRadius: "2em",
+                padding: "2.5em 12em 1.5em",
+              }}
             >
-              Publish this spot
-            </Button>
-          </div>
-        </Form>
-      </Container>
+              <Row>
+                {" "}
+                <div className="upload-btn-wrapper">
+                  <button className="upld-btn">
+                    <i
+                      style={{ color: "#fff", fontSize: "1.5em" }}
+                      className="far fa-image"
+                    ></i>
+                  </button>
+                  <input type="file" onChange={this.getFile} multiple />
+                </div>
+              </Row>
+              <Row style={{ margin: "1em 4em 0" }}>
+                <Form.Label className="labelfont">Upload Photos</Form.Label>
+              </Row>
+            </Col>
+
+            <h1
+              className="form-txt"
+              style={{
+                fontSize: "1em",
+                letterSpacing: "1em",
+                margin: "6vh 0 2vh",
+                textTransform: "uppercase",
+              }}
+            >
+              {"Add features:"}
+            </h1>
+
+            <Form.Row style={{ marginTop: "5vh" }}>
+              <Form.Group as={Col}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleTakeaway(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Take Away"}
+                  </span>
+                </Button>
+                <li style={{ textDecoration: "none", margin: "3vh" }}>
+                  {this.state.spot.toggleTakeaways
+                    ? this.state.takeaways.map((takeaway) => {
+                        return (
+                          <Form.Label
+                            className="checkbox-container"
+                            style={{ padding: "0 2vw", fontSize: "16px" }}
+                          >
+                            {takeaway.explanation}
+                            <input
+                              style={{
+                                position: "absolute",
+                                opacity: "0",
+                                cursor: "pointer",
+                                height: "0",
+                                width: "0",
+                              }}
+                              type="checkbox"
+                              value={takeaway._id}
+                              onChange={(e) => this.checkBox(e)}
+                            />
+                            <span className="checkmark"></span>
+                          </Form.Label>
+                        );
+                      })
+                    : null}
+                </li>
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleEatin(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Dine In"}
+                  </span>
+                </Button>
+                <li style={{ textDecoration: "none", margin: "3vh" }}>
+                  {this.state.spot.toggleEatins
+                    ? this.state.eatins.map((eatin) => {
+                        return (
+                          <Form.Label
+                            className="checkbox-container"
+                            style={{ padding: "0 2vw", fontSize: "16px" }}
+                          >
+                            {eatin.explanation}
+                            <input
+                              style={{
+                                position: "absolute",
+                                opacity: "0",
+                                cursor: "pointer",
+                                height: "0",
+                                width: "0",
+                              }}
+                              type="checkbox"
+                              value={eatin._id}
+                              onChange={(e) => this.checkBox2(e)}
+                            />
+                            <span className="checkmark"></span>
+                          </Form.Label>
+                        );
+                      })
+                    : null}
+                </li>
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleDiet(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Diet Options"}
+                  </span>
+                </Button>
+
+                <li style={{ textDecoration: "none" }}>
+                  {this.state.spot.toggleDiets
+                    ? this.state.diets.map((diet) => {
+                        return (
+                          <Form.Label
+                            className="checkbox-container"
+                            style={{ padding: "0 2vw", fontSize: "16px" }}
+                          >
+                            {diet.name}
+                            <input
+                              style={{
+                                position: "absolute",
+                                opacity: "0",
+                                cursor: "pointer",
+                                height: "0",
+                                width: "0",
+                              }}
+                              type="checkbox"
+                              value={diet._id}
+                              onChange={(e) => this.checkBox3(e)}
+                            />
+                            <span className="checkmark"></span>
+                          </Form.Label>
+                        );
+                      })
+                    : null}
+                </li>
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleEthic(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Ethics"}
+                  </span>
+                </Button>
+
+                <li style={{ textDecoration: "none" }}>
+                  {this.state.spot.toggleEthics
+                    ? this.state.ethics.map((ethic) => {
+                        return (
+                          <Form.Label
+                            className="checkbox-container"
+                            style={{ padding: "0 2vw", fontSize: "16px" }}
+                          >
+                            {ethic.type}
+                            <input
+                              style={{
+                                position: "absolute",
+                                opacity: "0",
+                                cursor: "pointer",
+                                height: "0",
+                                width: "0",
+                              }}
+                              type="checkbox"
+                              value={ethic._id}
+                              onChange={(e) => this.checkBox4(e)}
+                            />
+                            <span className="checkmark"></span>
+                          </Form.Label>
+                        );
+                      })
+                    : null}
+                </li>
+              </Form.Group>
+            </Form.Row>
+            <div>
+              <Button
+                onClick={(e) => this.createPlace(e, this.state.spot)}
+                style={{
+                  margin: "2vh 15vw",
+                  backgroundColor: "transparent",
+                  fontFamily: "Jost",
+                  border: "1 px solid white",
+                }}
+              >
+                Publish this spot
+              </Button>
+            </div>
+          </Form>
+        </Container>
+      </div>
     );
   }
 }
