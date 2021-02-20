@@ -27,6 +27,31 @@ button:hover,
   text-decoration: none;
   border-color: #fff;
 }
+
+/* upload button */
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upld-btn {
+  border: 2px solid white;
+  width: 20em;
+  background-color: transparent;
+  height: 2em;
+  border-radius: 20px;
+  padding: 0.2em;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
 /* .link:hover {
 	border-radius: 4px;
 	border: 1px solid #404040;

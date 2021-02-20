@@ -156,11 +156,10 @@ class CreateStoreType extends React.Component {
   render() {
     return (
       <div style={{ height: "150vh", backgroundColor: "#96ad9c" }}>
-        <Container style={{ padding: "15vh 20vw" }}>
+        <Container style={{ padding: "15vh 15vw" }}>
           <h1
             className="accent-co"
             style={{
-              fontFamily: "Jost",
               fontSize: "45px",
               letterSpacing: "4px",
               textTransform: "uppercase",
@@ -222,7 +221,6 @@ class CreateStoreType extends React.Component {
                     as="select"
                     onChange={(e) => this.changeField(e, "country")}
                   >
-                    {" "}
                     <option value="">Select Country</option>
                   </Form.Control>
                 </Form.Group>
@@ -292,6 +290,19 @@ class CreateStoreType extends React.Component {
                   </Form.Group>
                 </Col>
               </Form.Row>
+              <Form.Row>
+                <Form.Label className="labelfont">Upload Photos</Form.Label>
+                <div className="upload-btn-wrapper">
+                  <button className="upld-btn">
+                    <i
+                      style={{ color: "#fff", fontSize: "1.5em" }}
+                      className="far fa-image"
+                    ></i>
+                  </button>
+                  <input type="file" onChange={this.getFile} multiple />
+                </div>
+              </Form.Row>
+
               <Row>
                 <Link
                   className="accent-co"

@@ -42,6 +42,49 @@
 
 .accent-co {
   color: #d2ecf1;
+  font-family: "Jost";
+}
+
+/* ////features cards "button" on create */
+.features-buttons {
+  background-color: transparent !important;
+  border-radius: 50%;
+  border: 1px solid white;
+  height: 8em;
+  width: 8em;
+  display: inline-flex; /* or inline-flex */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.features-buttons:after {
+  background-color: transparent !important;
+  border-radius: 50%;
+  border: 1px solid white;
+  height: 8em;
+  width: 8em;
+  display: inline-flex; /* or inline-flex */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.fb-icon {
+  /* padding: 3vh 3.5vw 0; */
+  font-size: 4em;
+}
+
+.fb-txt {
+  /* padding: 0.2em 3.5vh 0; */
+  font-size: 2vh;
+  line-height: 3vh;
+  text-transform: uppercase;
+}
+
+.form-txt {
+  font-family: Jost;
+  color: #fff;
+  text-align: center;
 }
 /* .createheader {
   text-align: center;
