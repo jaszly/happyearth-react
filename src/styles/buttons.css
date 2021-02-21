@@ -52,6 +52,24 @@ button:hover,
   opacity: 0;
 }
 
+.submit-btn {
+  margin: 2vh 20vw;
+  background-color: transparent;
+  color: white;
+  font-family: "Jost";
+  border-radius: 2.5em;
+  border-color: white !important;
+  height: 10vh;
+  width: 14vw;
+}
+.submit-btn:hover {
+  background-color: #a8bfae;
+  color: #92a798;
+}
+.submit-btn::after {
+  background-color: #a8bfae !important;
+  color: #92a798;
+}
 /* .link:hover {
 	border-radius: 4px;
 	border: 1px solid #404040;
