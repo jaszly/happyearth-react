@@ -408,7 +408,6 @@ class CreateFoodDrink extends React.Component {
               }}
             >
               <Row>
-                {" "}
                 <div className="upload-btn-wrapper">
                   <button className="upld-btn">
                     <i
@@ -436,8 +435,8 @@ class CreateFoodDrink extends React.Component {
               {"Add features:"}
             </h1>
 
-            <Form.Row style={{ marginTop: "5vh" }}>
-              <Form.Group as={Col}>
+            <Col style={{ marginTop: "5vh" }}>
+              <Row>
                 <Button
                   as="Link"
                   className="features-buttons"
@@ -449,37 +448,32 @@ class CreateFoodDrink extends React.Component {
                   >
                     {"Take Away"}
                   </span>
-                </Button>
-                <li style={{ textDecoration: "none", margin: "3vh" }}>
-                  {this.state.spot.toggleTakeaways
-                    ? this.state.takeaways.map((takeaway) => {
-                        return (
-                          <Form.Label
-                            className="checkbox-container"
-                            style={{ padding: "0 2vw", fontSize: "16px" }}
-                          >
-                            {takeaway.explanation}
-                            <input
-                              style={{
-                                position: "absolute",
-                                opacity: "0",
-                                cursor: "pointer",
-                                height: "0",
-                                width: "0",
-                              }}
-                              type="checkbox"
-                              value={takeaway._id}
-                              onChange={(e) => this.checkBox(e)}
-                            />
-                            <span className="checkmark"></span>
-                          </Form.Label>
-                        );
-                      })
-                    : null}
-                </li>
-              </Form.Group>
+                </Button>{" "}
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleTakeaways
+                        ? this.state.takeaways.map((takeaway) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {takeaway.explanation}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={takeaway._id}
+                                  onChange={(e) => this.checkBox(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
 
-              <Form.Group as={Col}>
+              <Row style={{ margin: "2vh -1vw" }}>
                 <Button
                   as="Link"
                   className="features-buttons"
@@ -491,37 +485,31 @@ class CreateFoodDrink extends React.Component {
                   >
                     {"Dine In"}
                   </span>
-                </Button>
-                <li style={{ textDecoration: "none", margin: "3vh" }}>
-                  {this.state.spot.toggleEatins
-                    ? this.state.eatins.map((eatin) => {
-                        return (
-                          <Form.Label
-                            className="checkbox-container"
-                            style={{ padding: "0 2vw", fontSize: "16px" }}
-                          >
-                            {eatin.explanation}
-                            <input
-                              style={{
-                                position: "absolute",
-                                opacity: "0",
-                                cursor: "pointer",
-                                height: "0",
-                                width: "0",
-                              }}
-                              type="checkbox"
-                              value={eatin._id}
-                              onChange={(e) => this.checkBox2(e)}
-                            />
-                            <span className="checkmark"></span>
-                          </Form.Label>
-                        );
-                      })
-                    : null}
-                </li>
-              </Form.Group>
-
-              <Form.Group as={Col}>
+                </Button>{" "}
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleEatins
+                        ? this.state.eatins.map((eatin) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {eatin.explanation}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={eatin._id}
+                                  onChange={(e) => this.checkBox2(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+              <Row style={{ margin: "2vh -1vw" }}>
                 <Button
                   as="Link"
                   className="features-buttons"
@@ -535,36 +523,30 @@ class CreateFoodDrink extends React.Component {
                   </span>
                 </Button>
 
-                <li style={{ textDecoration: "none" }}>
-                  {this.state.spot.toggleDiets
-                    ? this.state.diets.map((diet) => {
-                        return (
-                          <Form.Label
-                            className="checkbox-container"
-                            style={{ padding: "0 2vw", fontSize: "16px" }}
-                          >
-                            {diet.name}
-                            <input
-                              style={{
-                                position: "absolute",
-                                opacity: "0",
-                                cursor: "pointer",
-                                height: "0",
-                                width: "0",
-                              }}
-                              type="checkbox"
-                              value={diet._id}
-                              onChange={(e) => this.checkBox3(e)}
-                            />
-                            <span className="checkmark"></span>
-                          </Form.Label>
-                        );
-                      })
-                    : null}
-                </li>
-              </Form.Group>
-
-              <Form.Group as={Col}>
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleDiets
+                        ? this.state.diets.map((diet) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {diet.name}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={diet._id}
+                                  onChange={(e) => this.checkBox3(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+              <Row style={{ margin: "2vh -1vw" }}>
                 <Button
                   as="Link"
                   className="features-buttons"
@@ -577,45 +559,35 @@ class CreateFoodDrink extends React.Component {
                     {"Ethics"}
                   </span>
                 </Button>
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleEthics
+                        ? this.state.ethics.map((ethic) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {ethic.type}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={ethic._id}
+                                  onChange={(e) => this.checkBox4(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+            </Col>
 
-                <li style={{ textDecoration: "none" }}>
-                  {this.state.spot.toggleEthics
-                    ? this.state.ethics.map((ethic) => {
-                        return (
-                          <Form.Label
-                            className="checkbox-container"
-                            style={{ padding: "0 2vw", fontSize: "16px" }}
-                          >
-                            {ethic.type}
-                            <input
-                              style={{
-                                position: "absolute",
-                                opacity: "0",
-                                cursor: "pointer",
-                                height: "0",
-                                width: "0",
-                              }}
-                              type="checkbox"
-                              value={ethic._id}
-                              onChange={(e) => this.checkBox4(e)}
-                            />
-                            <span className="checkmark"></span>
-                          </Form.Label>
-                        );
-                      })
-                    : null}
-                </li>
-              </Form.Group>
-            </Form.Row>
             <div>
               <Button
                 onClick={(e) => this.createPlace(e, this.state.spot)}
-                style={{
-                  margin: "2vh 15vw",
-                  backgroundColor: "transparent",
-                  fontFamily: "Jost",
-                  border: "1 px solid white",
-                }}
+                className="submit-btn"
               >
                 Publish this spot
               </Button>
