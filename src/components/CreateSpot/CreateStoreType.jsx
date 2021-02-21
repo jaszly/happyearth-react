@@ -290,18 +290,79 @@ class CreateStoreType extends React.Component {
                   </Form.Group>
                 </Col>
               </Form.Row>
-              <Form.Row>
-                <Form.Label className="labelfont">Upload Photos</Form.Label>
-                <div className="upload-btn-wrapper">
-                  <button className="upld-btn">
-                    <i
-                      style={{ color: "#fff", fontSize: "1.5em" }}
-                      className="far fa-image"
-                    ></i>
-                  </button>
-                  <input type="file" onChange={this.getFile} multiple />
-                </div>
-              </Form.Row>
+
+              <Col
+                style={{
+                  border: "1px dotted #d2ecf1",
+                  borderRadius: "2em",
+                  padding: "2.5em 12em 1.5em",
+                }}
+              >
+                <Row>
+                  <div className="upload-btn-wrapper">
+                    <button className="upld-btn">
+                      <i
+                        style={{ color: "#fff", fontSize: "1.5em" }}
+                        className="far fa-image"
+                      ></i>
+                    </button>
+                    <input type="file" onChange={this.getFile} multiple />
+                  </div>
+                </Row>
+                <Row style={{ margin: "1em 4em 0" }}>
+                  <Form.Label className="labelfont">Upload Photos</Form.Label>
+                </Row>
+              </Col>
+
+              <h1
+                className="form-txt"
+                style={{
+                  fontSize: "1em",
+                  letterSpacing: "1em",
+                  margin: "6vh 0 2vh",
+                  textTransform: "uppercase",
+                }}
+              >
+                {"Add features:"}
+              </h1>
+              <Col style={{ marginTop: "5vh" }}>
+                <Row style={{ margin: "2vh -1vw" }}>
+                  <Button
+                    as="Link"
+                    className="features-buttons"
+                    onClick={(e) => this.toggleEthic(e)}
+                  >
+                    <span
+                      className="fb-txt spotted-byuser"
+                      style={{ color: "#fff" }}
+                    >
+                      {"Ethics"}
+                    </span>
+                  </Button>
+                  <Col>
+                    <ul>
+                      <li className="checkbox-li grid features">
+                        {this.state.spot.toggleEthics
+                          ? this.state.ethics.map((ethic) => {
+                              return (
+                                <Form.Label className="checkbox-container">
+                                  {ethic.type}
+                                  <input
+                                    className="checkbox"
+                                    type="checkbox"
+                                    value={ethic._id}
+                                    onChange={(e) => this.checkBox4(e)}
+                                  />
+                                  <span className="checkmark"></span>
+                                </Form.Label>
+                              );
+                            })
+                          : null}
+                      </li>
+                    </ul>
+                  </Col>
+                </Row>
+              </Col>
 
               <Row>
                 <Link
