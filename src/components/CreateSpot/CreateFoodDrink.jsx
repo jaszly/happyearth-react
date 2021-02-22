@@ -267,7 +267,7 @@ class CreateFoodDrink extends React.Component {
 
   render() {
     return (
-      <div style={{ height: "250vh", backgroundColor: "#96ad9c" }}>
+      <div style={{ height: "100%", backgroundColor: "#96ad9c" }}>
         <Container style={{ padding: "15vh 15vw" }}>
           <h1
             className="accent-co"
