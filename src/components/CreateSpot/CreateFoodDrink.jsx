@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import {
+  Accordion,
   Container,
   Form,
   Button,
@@ -354,7 +355,7 @@ class CreateFoodDrink extends React.Component {
                 <Form.Label>City</Form.Label>
                 <Form.Control
                   name="city"
-                  className="states order-alpha form-boxes form-sm"
+                  className="cities order-alpha form-boxes form-sm"
                   id="cityId"
                   size="sm"
                   as="select"
@@ -434,6 +435,41 @@ class CreateFoodDrink extends React.Component {
             >
               {"Add features:"}
             </h1>
+
+            <Accordion style={{ textAlign: "center" }}>
+              <Accordion.Toggle
+                className="toggle"
+                as={Link}
+                variant="link"
+                eventKey="0"
+              >
+                More Info
+              </Accordion.Toggle>
+              <Accordion.Collapse className="accent-co info" eventKey="0">
+                <ul style={{}}>
+                  <li>
+                    BYO: Allows customers to bring own cup, containers, bags
+                    etc.
+                  </li>
+                  <li>Bio: Biodegradable, compostable.</li>
+                  <li>
+                    Eco: Biodegradable, compostable, or made from earth
+                    materials
+                  </li>
+                  <li>
+                    Single Use: Plastic, styrofoam, anything synthetic that gets
+                    tossed
+                  </li>
+                  <li>
+                    Table Serve: Avoids single use products by providing table
+                    condiments
+                  </li>
+                  <li>
+                    See our <Link>Glossary</Link> for more definitions
+                  </li>
+                </ul>
+              </Accordion.Collapse>
+            </Accordion>
 
             <Col style={{ marginTop: "5vh" }}>
               <Row>
@@ -583,7 +619,23 @@ class CreateFoodDrink extends React.Component {
                 </Col>
               </Row>
             </Col>
-
+            <Row>
+              <Link
+                className="accent-co"
+                to="/landing"
+                style={{
+                  textDecoration: " none",
+                  backgroundColor: "transparent",
+                  fontFamily: "Jost",
+                  textTransform: "uppercase",
+                  letterSpacing: "4px",
+                  margin: "3vh",
+                  fontSize: ".8em",
+                }}
+              >
+                {"< Back"}
+              </Link>
+            </Row>
             <div>
               <Button
                 onClick={(e) => this.createPlace(e, this.state.spot)}
