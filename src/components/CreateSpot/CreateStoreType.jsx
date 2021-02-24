@@ -155,7 +155,7 @@ class CreateStoreType extends React.Component {
 
   render() {
     return (
-      <div style={{ height: "150vh", backgroundColor: "#96ad9c" }}>
+      <div style={{ height: "100%", backgroundColor: "#96ad9c" }}>
         <Container style={{ padding: "15vh 15vw" }}>
           <h1
             className="accent-co"
@@ -290,18 +290,115 @@ class CreateStoreType extends React.Component {
                   </Form.Group>
                 </Col>
               </Form.Row>
-              <Form.Row>
-                <Form.Label className="labelfont">Upload Photos</Form.Label>
-                <div className="upload-btn-wrapper">
-                  <button className="upld-btn">
-                    <i
-                      style={{ color: "#fff", fontSize: "1.5em" }}
-                      className="far fa-image"
-                    ></i>
-                  </button>
-                  <input type="file" onChange={this.getFile} multiple />
-                </div>
-              </Form.Row>
+              <Col
+                style={{
+                  border: "1px dotted #d2ecf1",
+                  borderRadius: "2em",
+                  padding: "2.5em 12em 1.5em",
+                }}
+              >
+                <Row>
+                  <div className="upload-btn-wrapper">
+                    <button className="upld-btn">
+                      <i
+                        style={{ color: "#fff", fontSize: "1.5em" }}
+                        className="far fa-image"
+                      ></i>
+                    </button>
+                    <input type="file" onChange={this.getFile} multiple />
+                  </div>
+                </Row>
+                <Row style={{ margin: "1em 4em 0" }}>
+                  <Form.Label className="labelfont">Upload Photos</Form.Label>
+                </Row>
+              </Col>
+
+              <h1
+                className="form-txt"
+                style={{
+                  fontSize: "1em",
+                  letterSpacing: "1em",
+                  margin: "6vh 0 2vh",
+                  textTransform: "uppercase",
+                }}
+              >
+                {"Add features:"}
+              </h1>
+
+              <Accordion style={{ textAlign: "center" }}>
+                <Accordion.Toggle
+                  className="toggle"
+                  as={Link}
+                  variant="link"
+                  eventKey="0"
+                >
+                  More Info
+                </Accordion.Toggle>
+                <Accordion.Collapse className="accent-co info" eventKey="0">
+                  <ul style={{}}>
+                    <li>Bio: Biodegradable, compostable.</li>
+                    <li>
+                      Eco: Biodegradable, compostable, or made from earth
+                      materials
+                    </li>
+                    <li>
+                      See our <Link>Glossary</Link> for more definitions
+                    </li>
+                  </ul>
+                </Accordion.Collapse>
+              </Accordion>
+
+              <Row style={{ margin: "2vh -1vw" }}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleEthic(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Products"}
+                  </span>
+                </Button>
+              </Row>
+
+              <Row style={{ margin: "2vh -1vw" }}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleEthic(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Ethics"}
+                  </span>
+                </Button>
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleEthics
+                        ? this.state.ethics.map((ethic) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {ethic.type}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={ethic._id}
+                                  onChange={(e) => this.checkBox4(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
 
               <Row>
                 <Link
@@ -319,6 +416,14 @@ class CreateStoreType extends React.Component {
                 >
                   {"< Back"}
                 </Link>
+                <div>
+                  <Button
+                    onClick={(e) => this.createPlace(e, this.state.spot)}
+                    className="submit-btn"
+                  >
+                    Publish this spot
+                  </Button>
+                </div>
               </Row>
             </Form>
           </Form.Group>
