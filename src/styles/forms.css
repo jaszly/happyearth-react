@@ -220,6 +220,22 @@ h2 + form {
 .accent-co {
   color: #d2ecf1;
   font-family: "Jost";
+  letter-spacing: 0.2em;
+}
+
+.toggle {
+  text-decoration: none;
+  color: white;
+  font-family: "Jost";
+  font-size: 1em;
+  letter-spacing: 0.2em;
+}
+.toggle:hover {
+  text-decoration: none;
+  color: #eaeaea;
+}
+.info {
+  margin: 2em;
 }
 
 /* ////features cards "button" on create */
