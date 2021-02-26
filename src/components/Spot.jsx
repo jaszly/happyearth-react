@@ -30,7 +30,10 @@ class Spot extends React.Component {
       },
       features: [],
       description: "",
-      types: {},
+      spotTypes: {
+        name: "",
+        categoryname: "",
+      },
       eatins: [],
       takeaways: [],
       city: "",
@@ -44,6 +47,7 @@ class Spot extends React.Component {
       toggleTakeaways: false,
     },
     spotter: {},
+    spotType: {}, //a name for a type...idk
     eatins: [],
     takeaways: [],
     remainingEatins: [],
@@ -84,11 +88,22 @@ class Spot extends React.Component {
         this.getRemainingEatins();
         this.getRemainingTakeaways();
         let spotterId = this.state.spot.spotters;
+        let spotTypeId = this.state.spot.spotTypes;
+
         axios
           .get(`http://localhost:4000/users/${spotterId}`)
           .then((user) => {
             console.log({ user: user });
             this.setState({ spotter: user.data });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        axios
+          .get(`http://localhost:4000/typesall/${spotTypeId}`)
+          .then((type) => {
+            console.log({ type: type });
+            this.setState({ spotType: type.data });
           })
           .catch((err) => {
             console.log(err);
@@ -173,7 +188,10 @@ class Spot extends React.Component {
           <Row style={{ border: "1px solid black" }}>name of spot here</Row>
           <Row style={{ border: "1px solid black" }}>
             <Col style={{ border: "1px solid black" }}>
-              col 2: spot type here
+              <h1 style={{ color: "black" }}>
+                SPOT TYPE:
+                {` ${this.state.spotType.name} ${this.state.spotter.lastName}`}
+              </h1>
             </Col>
             <Col style={{ border: "1px solid black" }}>
               col 1: location here
@@ -345,10 +363,7 @@ class Spot extends React.Component {
                     </Carousel.Item>
                   );
                 })}
-                <Carousel.Caption>
-                  {" "}
-                  <div>{this.state.spot.types.name}</div>
-                </Carousel.Caption>
+                <Carousel.Caption> </Carousel.Caption>
               </Carousel>
               <div>
                 {this.state.spot.images.map((image, index) => {
