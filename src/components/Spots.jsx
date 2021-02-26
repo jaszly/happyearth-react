@@ -43,7 +43,7 @@ class Spots extends React.Component {
   filterByType = (e) => {
     console.log("this.state.spots", this.state.spots);
     let selected = e.target.value;
-    console.log(e.target.value);
+    console.log("the target search >>>", e.target.value);
     let spotsClone = this.state.spotsClone;
     let spotsFound;
     if (selected !== "All" || selected !== "Any") {
