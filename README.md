@@ -1,19 +1,13 @@
 # Happy Earth
 
-Happy Earth is a crowdsourcing platform for reviewing and viewing businesses by their sustainability efforts. 
-Find eco friendly shops, organizations, and restaurants in the city of your choice. 
-We are currently in various major cities worldwide, including Sydney Australia, San Francisco Ca, and Bangkok Thailand. 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Happy Earth is a web app for viewing eco friendly businesses shops, stores, and restaurants in the city of your choice. 
 
 ## Search for various places by city and type:
 
-example will go here
-
+xxxx
 ## Add a spot to Happy Earth
 
-example will go there
-
+xxxx
 ## Setup
 
 - Clone the repository
