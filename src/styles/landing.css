@@ -1,6 +1,11 @@
 @media only screen and (max-width: 600px) {
   height: 50%;
 }
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
 
 .bg-img {
   height: 90%;

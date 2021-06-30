@@ -126,6 +126,7 @@ class Landing extends React.Component {
                         fontFamily: "Kodchasan",
                         padding: "2vh 2vw",
                         margin: "2vh 2vw",
+                        fontSize: "1.8em",
                       }}
                     >
                       <i
@@ -140,49 +141,101 @@ class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <Container style={{ margin: "30vh 45vw" }}>
-          <Row></Row>
-        </Container>
+
         <div>
           <div>
             <h2 className="secondary" style={{ color: "black" }}>
               Browse Happy Earth's Top Reviewed Cities:
-            </h2>{" "}
-            <Card
-              style={{
-                // width: "10vw",
-                height: "40vh",
-                background: "#FFFFFF",
-                border: "1px solid #E0E0E0",
-                borderRadius: "30px",
-                margin: "30px 100px",
-              }}
-            >
-              <Card.Img
-                style={{
-                  padding: "20px 20px 0px 20px",
-                  borderRadius: "4px",
-                  marginBottom: "0px",
-                }}
-                variant="top"
-                src="https://source.unsplash.com/tPf-9_uMIeU"
-              />
-              <Card.Body>
-                <Button
-                  variant="link"
-                  style={{
-                    height: "30px",
-                    borderRadius: "12px",
-                    borderColor: "#000",
-                    marginLeft: "1px",
-                    padding: "0 3px 3px 0",
-                  }}
-                >
-                  $type of spot{" "}
-                </Button>
-                <Card.Title style={{ marginTop: "10px" }}></Card.Title>
-              </Card.Body>
-            </Card>
+            </h2>
+            <Container>
+              <Row>
+                {" "}
+                <Col>
+                  <Card
+                    style={{
+                      // width: "10vw",
+                      // height: "10vh",
+                      background: "#FFFFFF",
+                      border: "1px solid #E0E0E0",
+                      borderRadius: "30px",
+                      margin: "30px 100px",
+                    }}
+                  >
+                    <Card.Body>
+                      <Button
+                        variant="link"
+                        style={{
+                          height: "30px",
+                          borderRadius: "12px",
+                          borderColor: "#000",
+                          marginLeft: "1px",
+                          padding: "0 3px 3px 0",
+                        }}
+                      >
+                        $type of spot{" "}
+                      </Button>
+                      <Card.Title style={{ marginTop: "10px" }}></Card.Title>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <Col>
+                  <Card
+                    style={{
+                      // width: "10vw",
+                      // height: "10vh",
+                      background: "#FFFFFF",
+                      border: "1px solid #E0E0E0",
+                      borderRadius: "30px",
+                      margin: "30px 100px",
+                    }}
+                  >
+                    <Card.Body>
+                      <Button
+                        variant="link"
+                        style={{
+                          height: "30px",
+                          borderRadius: "12px",
+                          borderColor: "#000",
+                          marginLeft: "1px",
+                          padding: "0 3px 3px 0",
+                        }}
+                      >
+                        $type of spot{" "}
+                      </Button>
+                      <Card.Title style={{ marginTop: "10px" }}></Card.Title>
+                    </Card.Body>
+                  </Card>{" "}
+                </Col>
+                <Col>
+                  <Card
+                    style={{
+                      // width: "10vw",
+                      // height: "10vh",
+                      background: "#FFFFFF",
+                      border: "1px solid #E0E0E0",
+                      borderRadius: "30px",
+                      margin: "30px 100px",
+                    }}
+                  >
+                    <Card.Body>
+                      <Button
+                        variant="link"
+                        style={{
+                          height: "30px",
+                          borderRadius: "12px",
+                          borderColor: "#000",
+                          marginLeft: "1px",
+                          padding: "0 3px 3px 0",
+                        }}
+                      >
+                        $type of spot{" "}
+                      </Button>
+                      <Card.Title style={{ marginTop: "10px" }}></Card.Title>
+                    </Card.Body>
+                  </Card>{" "}
+                </Col>
+              </Row>
+            </Container>
           </div>
         </div>
       </>
