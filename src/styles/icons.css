@@ -14,6 +14,10 @@
   padding-right: 0.2em;
 }
 
+.far-fa-image {
+  color: white;
+}
+
 .fa-globe-americas.fas {
   color: #00988f;
 }
@@ -24,11 +28,11 @@
 
 .fa-star,
 .fa-map-marker-alt {
-  color: #00988f;
+  color: white;
 }
 
+/* SEARCH PANEL LOCATIONS PIN  */
 .fas.fa-map-marker-alt {
-  /* color: tomato; */
   color: #00988f;
   padding: 0 0.8em 0 0;
 }

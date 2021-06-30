@@ -7,9 +7,12 @@ import {
   Accordion,
   Card,
   Button,
+  Row,
   Col,
   ProgressBar,
 } from "react-bootstrap";
+import TopNav from "./../Nav-Top.jsx";
+
 // import "../../styles/create.css";
 
 class Category extends React.Component {
@@ -63,7 +66,7 @@ class Category extends React.Component {
         .then((user) => {
           this.setState({ user: user.data });
           this.state.spot.spotters = this.state.user._id;
-          // this.state.spot.types = this.stae.types[0]._id;
+          // this.state.spot.types = this.state.types[0]._id;
           this.setState({ spot });
         })
         .catch((err) => console.log(err));
@@ -109,29 +112,58 @@ class Category extends React.Component {
 
   render() {
     return (
-      <div>
-        <Container>
-          <Form className="createform">
-            <Link
-              className=" card link "
-              to={`/create-${this.state.category.linkTitle}`}
+      <>
+        <Link
+          className="card link"
+          to={`/create-${this.state.category.linkTitle}`}
+          style={{
+            height: "100%",
+            width: "75%",
+            textAlign: "center",
+            boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.2)",
+            maxHeight: "30vh",
+            itemsAlign: "center",
+            margin: "28vh 0 0 8vw",
+            transition:
+              "box-shadow .3s ease,background-color .3s ease,border-color .3",
+          }}
+        >
+          <i
+            className={this.state.category.image}
+            style={{
+              color: "#00988f",
+              fontSize: "5vh",
+              textAlign: "center",
+              padding: "4vh 0 0 0",
+            }}
+          ></i>
+          <h1
+            style={{
+              fontSize: "3vh",
+              fontFamily: "Jost",
+              textTransform: "lowercase",
+              letterSpacing: "1.5px",
+              padding: "2vh 0 0 0",
+            }}
+          >
+            {this.state.category.displayTitle}
+          </h1>
+          <div>
+            <h6
+              style={{
+                fontSize: "2vh",
+                fontFamily: "Jost",
+                textTransform: "lowercase",
+                letterSpacing: "1.5px",
+                lineHeight: " 4vh",
+                padding: "0 2vw",
+              }}
             >
-              <div
-                className="image"
-                style={this.selectBackground(this.state.category.image)}
-              ></div>
-
-              <small style={{ textAlign: "center" }}>
-                {this.state.category.displayTitle}
-              </small>
-
-              <div>
-                <small>{this.state.category.about}</small>
-              </div>
-            </Link>
-          </Form>
-        </Container>
-      </div>
+              {this.state.category.about}
+            </h6>
+          </div>
+        </Link>
+      </>
     );
   }
 }

@@ -1,37 +1,21 @@
 @media only screen and (max-width: 600px) {
   height: 50%;
 }
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
 
-/* hero img */
 .bg-img {
   height: 90%;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
   text-align: center;
-  /* bg imgage options: */
-  /*palm trees in the wind */
-  /* background-image: url('https://i.ibb.co/hH6ZLZW/viviana-rishe-ZQ-El23u-CRE-unsplash.jpg'); */
-
-  /*recyled garden */
-  /* background-image: url('https://images.pexels.com/photos/2505705/pexels-photo-2505705.jpeg'); */
-
-  /*yellow */
-  /* background-image: url('https://images.pexels.com/photos/3551355/pexels-photo-3551355.jpeg'); */
-  /* blue sky green plants */
-  /* background-image: url('https://images.pexels.com/photos/788485/pexels-photo-788485.jpeg'); */
-
-  /*earth */
-  background-image: url("https://images.unsplash.com/photo-1501696057772-02661ce93702");
-
-  /*basic green */
-  /* background-image: url('https://i.pinimg.com/1200x/37/5e/00/375e00f56d6a173f69d0dc108f1564e4.jpg*/
   opacity: 0.8;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* top: 0; */
+  background: #9aa07e;
 }
 
 /* text on hero image */
@@ -57,7 +41,7 @@
 h2,
 .secondary {
   color: white;
-  font-family: "Jost";
+  font-family: "Kodchasan";
   font-size: 35px;
   line-height: 200%;
   letter-spacing: 5px;
@@ -89,15 +73,14 @@ h2,
   display: inline-flex;
   flex: 1 1 300px;
   position: relative;
-  border: 1px solid;
-  border-radius: 5px;
+  border: 2px solid;
+  border-radius: 30px;
   overflow: hidden;
-  margin-top: 25px;
+  margin: 10vh;
   width: 40vw;
-  /* border: none; */
-  /* font-size: 19px;
-	font-family: 'Jost'; */
+  border: white;
   box-sizing: border-box;
+  color: white;
 }
 
 .search-panel {
@@ -107,19 +90,21 @@ h2,
   top: 100%;
   margin: -1vh 0 0 30vw;
   left: 0px;
-  background: white;
+  background: inherit;
   z-index: 100;
 }
 
 .search-icon {
   padding: 1.3rem 0.5em 1.3rem 1.3rem;
-  background-color: white;
-  color: #8a8a8a;
+  background-color: #9aa07e;
+  color: #fff;
   background-position: center;
   font-size: 1em;
 }
 
 .center-searchBox {
+  background-color: #9aa07e;
+  color: white;
   border: 0;
   padding: 0.5rem 0.5rem 0.5rem 0;
   flex: 1;

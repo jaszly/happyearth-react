@@ -1,9 +1,30 @@
 import React from "react";
+import axios from "axios";
+
 import { Form, Button } from "react-bootstrap";
 import "../styles/filters.css";
 
 class Filters extends React.Component {
-  state = {};
+  state = {
+    spot: {
+      types: [],
+    },
+    types: [],
+  };
+
+  UNSAFE_componentWillMount() {
+    let types = this.state.types;
+
+    axios
+      .get(`http://localhost:4000/typesAll`)
+      .then((res) => {
+        types = res.data;
+        this.setState({ types });
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
+  }
 
   render() {
     return (
@@ -22,14 +43,20 @@ class Filters extends React.Component {
 
         <Form.Group className="filter-borders ">
           <div className="filter-borders-padding">
-            <Form.Label className="form-label">Caegory</Form.Label>
+            <Form.Label> Subcategory </Form.Label>
             <Form.Control
+              className="form-boxes form-sm"
+              size="sm"
               as="select"
               onChange={(e) => this.props.filterByType(e)}
-              style={{ margin: "5px 0 25px" }}
             >
               <option value="All">All</option>
+              {this.state.types.map((type) => {
+                return <option value={type._id}>{type.name}</option>;
+              })}
+              >
             </Form.Control>
+
             <Form.Label>Price Range</Form.Label>
             <Form.Control
               as="select"

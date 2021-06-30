@@ -14,6 +14,13 @@
   padding: 30px;
   border-radius: 3px;
 }
+/* /////////  FEATURES CARD TOGGLE CHECKBOXES /////// */
+.grid.features {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 5vh 0 0;
+}
+
 .grid .autoheight {
   height: 720px;
 }
@@ -112,14 +119,12 @@
   padding: 60px;
 }
 
+/* ///////CATEGORY CARDS/////////////// */
 .grid.four {
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* grid-column-gap: 20px; */
-  grid-column-gap: 5px;
-  /* grid-row-gap: 20px; */
-  padding: 20px;
-
-  /* padding: 30px; */
+  grid-template-rows: 1fr;
+  /* grid-row-gap: 5vh; */
+  /* grid-column-gap: 5vw; */
 }
 
 .grid.five {

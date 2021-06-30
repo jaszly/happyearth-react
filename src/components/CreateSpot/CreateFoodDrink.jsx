@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 import {
+  Accordion,
   Container,
   Form,
   Button,
@@ -10,27 +10,32 @@ import {
   Row,
   ProgressBar,
 } from "react-bootstrap";
-
+import "../../styles/forms.css";
+import "../../styles/buttons.css";
 class CreateFoodDrink extends React.Component {
   state = {
     user: {},
     category: {},
     spot: {
+      title: "",
       files: [],
       images: [],
       types: [],
       eatins: [],
       takeaways: [],
-      features: [],
+      diets: [],
+      ethics: [],
       lat: "",
       lng: "",
       toggleEatins: false,
       toggleTakeaways: false,
-      toggleFeatures: false,
+      toggleDiets: false,
+      toggleEthics: false,
     },
     eatins: [],
     takeaways: [],
-    features: [],
+    diets: [],
+    ethics: [],
     types: [],
   };
 
@@ -39,7 +44,8 @@ class CreateFoodDrink extends React.Component {
     let types = this.state.types;
     let eatins = this.state.eatins;
     let takeaways = this.state.takeaways;
-    let features = this.state.features;
+    let diets = this.state.diets;
+    let ethics = this.state.ethics;
 
     axios
       .get(`http://localhost:4000/create/${categoryId}`)
@@ -78,12 +84,24 @@ class CreateFoodDrink extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+
     axios
-      .get(`http://localhost:4000/features`)
+      .get(`http://localhost:4000/diets`)
       .then((res) => {
-        features = res.data;
-        this.setState({ features });
-        console.log({ features });
+        diets = res.data;
+        this.setState({ diets });
+        console.log({ diets });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+      .get(`http://localhost:4000/ethics`)
+      .then((res) => {
+        ethics = res.data;
+        this.setState({ ethics });
+        console.log({ ethics });
       })
       .catch((err) => {
         console.log(err);
@@ -105,7 +123,7 @@ class CreateFoodDrink extends React.Component {
         .then((user) => {
           this.setState({ user: user.data });
           this.state.spot.spotters = this.state.user._id;
-          this.state.spot.types = this.stae.types[0]._id;
+          this.state.spot.types = this.state.types[0]._id;
           this.setState({ spot });
         })
         .catch((err) => console.log(err));
@@ -133,10 +151,17 @@ class CreateFoodDrink extends React.Component {
     this.setState({ spot });
   };
 
-  //toggle features
-  toggleFeature = (e) => {
+  // toggle diets
+  toggleDiet = (e) => {
     let spot = this.state.spot;
-    spot.toggleFeatures = !spot.toggleFeatures;
+    spot.toggleDiets = !spot.toggleDiets;
+    this.setState({ spot });
+  };
+
+  // toggle ethics
+  toggleEthic = (e) => {
+    let spot = this.state.spot;
+    spot.toggleEthics = !spot.toggleEthics;
     this.setState({ spot });
   };
 
@@ -156,7 +181,7 @@ class CreateFoodDrink extends React.Component {
   };
 
   //select eatins
-  checkbox2 = (e) => {
+  checkBox2 = (e) => {
     let spot = this.state.spot;
     let _id = e.target.value;
     // let eatins = spot.eatins;
@@ -170,17 +195,30 @@ class CreateFoodDrink extends React.Component {
     this.setState({ spot });
   };
 
-  //select features
-  checkbox3 = (e) => {
+  //select diets
+  checkBox3 = (e) => {
     let spot = this.state.spot;
     let _id = e.target.value;
-    // let eatins = spot.eatins;
-
-    if (spot.features.find((feature) => feature === _id)) {
-      spot.features = spot.features.filter((feature) => feature !== _id);
+    // let eatins = spot.diets;
+    if (spot.diets.find((diet) => diet === _id)) {
+      spot.diets = spot.diets.filter((diet) => diet !== _id);
     } else {
-      spot.features.push(_id);
-      this.setState({ spot: spot.features });
+      spot.diets.push(_id);
+      this.setState({ spot: spot.diets });
+    }
+    this.setState({ spot });
+  };
+
+  //select ethics
+  checkBox4 = (e) => {
+    let spot = this.state.spot;
+    let _id = e.target.value;
+
+    if (spot.ethics.find((ethic) => ethic === _id)) {
+      spot.ethics = spot.ethics.filter((ethic) => ethic !== _id);
+    } else {
+      spot.ethics.push(_id);
+      this.setState({ spot: spot.ethics });
     }
     this.setState({ spot });
   };
@@ -201,7 +239,9 @@ class CreateFoodDrink extends React.Component {
     for (let key in this.state.spot) {
       if (
         (typeof this.state.spot[key] == "object" && key === "eatins") ||
-        key === "takeaways"
+        key === "takeaways" ||
+        key === "diets" ||
+        key === "ethics"
       ) {
         this.state.spot[key].forEach((val) => {
           data.append(`${key}[]`, val);
@@ -228,117 +268,383 @@ class CreateFoodDrink extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <Button variant="light" onClick={(e) => this.toggleTakeaway(e)}>
-            Add features{" "}
-          </Button>
+      <div style={{ height: "100%", backgroundColor: "#96ad9c" }}>
+        <Container style={{ padding: "15vh 15vw" }}>
+          <h1
+            className="accent-co"
+            style={{
+              fontSize: "45px",
+              letterSpacing: "4px",
+              textTransform: "uppercase",
+              marginBottom: "5vh",
+            }}
+          >
+            {" add a spot to ekoh"}
+          </h1>
 
-          {this.state.spot.toggleTakeaways
-            ? this.state.takeaways.map((takeaway) => {
-                return (
-                  <label className="checkbox labelfont">
-                    <input
-                      type="checkbox"
-                      value={takeaway._id}
-                      onChange={(e) => this.checkBox(e)}
-                    />
-                    <i className={takeaway.icon}></i>
-                    <span>{takeaway.explanation}</span>
-                  </label>
-                );
-              })
-            : null}
-        </div>
-
-        <Container>
-          <Form.Group>
-            <Form className="createform">
-              <span style={{ fontSize: "20px", color: "gray" }}> </span>
-
-              <Form.Label>Details</Form.Label>
-
-              <Form.Control
-                size="sm"
-                type="text"
-                placeholder="Enter business name"
-              />
-              <br />
-              <Form.Label> Subcategory </Form.Label>
-              <Form.Control
-                size="sm"
-                placeholder="Subcategory"
-                as="select"
-                onChange={(e) => this.changeField(e, "types")}
-              >
-                {this.state.types.map((type) => {
-                  return <option value={type._id}>{type.name}</option>;
-                })}
+          <Form>
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Form.Label>Business Name</Form.Label>
+                <Form.Control
+                  className="form-boxes form-sm"
+                  size="sm"
+                  type="text"
+                  onChange={(e) => this.changeField(e, "title")}
+                />
+              </Form.Group>
+              <Form.Group as={Col}>
+                <Form.Label> Subcategory </Form.Label>
+                <Form.Control
+                  className="form-boxes form-sm"
+                  size="sm"
+                  as="select"
+                  onChange={(e) => this.changeField(e, "subcategory")}
                 >
-              </Form.Control>
-              <br />
+                  {this.state.types.map((type) => {
+                    return <option value={type._id}>{type.name}</option>;
+                  })}
+                  >
+                </Form.Control>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Form.Label> Description </Form.Label>
+                <Form.Control
+                  className="form-boxes form-lrg"
+                  as="textarea"
+                  type="text"
+                  rows={6}
+                  onChange={(e) => this.changeField(e, "description")}
+                />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridCountry">
+                <Form.Label>Country</Form.Label>
+                <Form.Control
+                  name="country"
+                  className="countries order-alpha form-boxes form-sm"
+                  id="countryId"
+                  style={{ height: "3.5em" }}
+                  size="sm"
+                  as="select"
+                  onChange={(e) => this.changeField(e, "country")}
+                >
+                  <option value="">Select Country</option>
+                </Form.Control>
+              </Form.Group>
 
-              <Form.Control
-                as="textarea"
-                type="text"
-                placeholder="Note to dev: Come back to this^ figure out how to show subcategories in each type"
-                rows={3}
-              />
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Region</Form.Label>
+                <Form.Control
+                  name="state"
+                  className="states order-alpha form-boxes form-sm"
+                  id="stateId"
+                  style={{ height: "3.5em" }}
+                  size="sm"
+                  as="select"
+                  onChange={(e) => this.changeField(e, "region")}
+                >
+                  <option value="">Select Region or State</option>
+                </Form.Control>
+              </Form.Group>
 
-              <br />
-              <div>
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>Location</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="City" />
-                  </Form.Group>
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  name="city"
+                  className="cities order-alpha form-boxes form-sm"
+                  id="cityId"
+                  size="sm"
+                  as="select"
+                  onChange={(e) => this.changeField(e, "city")}
+                >
+                  <option value="">Select City</option>
+                </Form.Control>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Col xs={8}>
+                <Form.Group controlId="formGridNighborhood">
+                  <Form.Label>District/Neigborhood (Optional)</Form.Label>
+                  <Form.Control
+                    className="form-boxes form-sm"
+                    type="text"
+                    placeholder="Ex: CBD, Chinatown, Mission District, Lamai Beach"
+                  />
+                </Form.Group>
+              </Col>
+              <Col xs lg="2">
+                <Form.Group controlId="formGridLat">
+                  <Form.Label className="labelfont">Latitude</Form.Label>
+                  <Form.Control
+                    className="form-boxes form-sm"
+                    type="number"
+                    value={this.state.spot.lat}
+                    onChange={(e) => this.changeField(e, "lat")}
+                    style={{ height: "3.5em" }}
+                  />
+                </Form.Group>
+              </Col>
+              <Col xs lg="2">
+                <Form.Group controlId="formGridLng" className="col-xs-2">
+                  <Form.Label className="labelfont">Longitude</Form.Label>
+                  <Form.Control
+                    className="form-boxes form-sm"
+                    type="number"
+                    value={this.state.spot.lng}
+                    onChange={(e) => this.changeField(e, "lng")}
+                  />
+                </Form.Group>
+              </Col>
+            </Form.Row>
 
-                  <Form.Group as={Col} controlId="formGridNighborhood">
-                    <Form.Label> Neighborhood </Form.Label>
+            <Col
+              style={{
+                border: "1px dotted #d2ecf1",
+                borderRadius: "2em",
+                padding: "2.5em 12em 1.5em",
+              }}
+            >
+              <Row>
+                <div className="upload-btn-wrapper">
+                  <button className="upld-btn">
+                    <i
+                      style={{ color: "#fff", fontSize: "1.5em" }}
+                      className="far fa-image"
+                    ></i>
+                  </button>
+                  <input type="file" onChange={this.getFile} multiple />
+                </div>
+              </Row>
+              <Row style={{ margin: "1em 4em 0" }}>
+                <Form.Label className="labelfont">Upload Photos</Form.Label>
+              </Row>
+            </Col>
 
-                    <Form.Control
-                      size="sm"
-                      type="text"
-                      placeholder="Neigborhood"
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="formGridCountry">
-                    <Form.Label> Country </Form.Label>
+            <h1
+              className="form-txt"
+              style={{
+                fontSize: "1em",
+                letterSpacing: "1em",
+                margin: "6vh 0 2vh",
+                textTransform: "uppercase",
+              }}
+            >
+              {"Add features:"}
+            </h1>
 
-                    <Form.Control size="sm" type="text" />
-                  </Form.Group>
-                </Form.Row>
-                <br />
+            <Accordion style={{ textAlign: "center" }}>
+              <Accordion.Toggle
+                className="toggle"
+                as={Link}
+                variant="link"
+                eventKey="0"
+              >
+                More Info
+              </Accordion.Toggle>
+              <Accordion.Collapse className="accent-co info" eventKey="0">
+                <ul style={{}}>
+                  <li>
+                    BYO: Allows customers to bring own cup, containers, bags
+                    etc.
+                  </li>
+                  <li>Bio: Biodegradable, compostable.</li>
+                  <li>
+                    Eco: Biodegradable, compostable, or made from earth
+                    materials
+                  </li>
+                  <li>
+                    Single Use: Plastic, styrofoam, anything synthetic that gets
+                    tossed
+                  </li>
+                  <li>
+                    Table Serve: Avoids single use products by providing table
+                    condiments
+                  </li>
+                  <li>
+                    See our <Link>Glossary</Link> for more definitions
+                  </li>
+                </ul>
+              </Accordion.Collapse>
+            </Accordion>
 
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridLat">
-                    <Form.Label className="labelfont">Latitude</Form.Label>
-                    <Form.Control
-                      type="number"
-                      value={this.state.spot.lat}
-                      onChange={(e) => this.changeField(e, "lat")}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="formGridLng">
-                    <Form.Label className="labelfont">Longitude</Form.Label>
-                    <Form.Control
-                      type="number"
-                      value={this.state.spot.lng}
-                      onChange={(e) => this.changeField(e, "lng")}
-                    />
-                  </Form.Group>
-                </Form.Row>
-                <Row>
-                  <Col>
-                    <Link to="/landing">{"< Back"}</Link>
-                  </Col>
-                  <Col>
-                    <Link to="/add-features-1">{" Add Features >"}</Link>
-                  </Col>{" "}
-                </Row>
-              </div>
-            </Form>
-          </Form.Group>
+            <Col style={{ marginTop: "5vh" }}>
+              <Row>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleTakeaway(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Take Away"}
+                  </span>
+                </Button>{" "}
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleTakeaways
+                        ? this.state.takeaways.map((takeaway) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {takeaway.explanation}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={takeaway._id}
+                                  onChange={(e) => this.checkBox(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+
+              <Row style={{ margin: "2vh -1vw" }}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleEatin(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Dine In"}
+                  </span>
+                </Button>{" "}
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleEatins
+                        ? this.state.eatins.map((eatin) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {eatin.explanation}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={eatin._id}
+                                  onChange={(e) => this.checkBox2(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+              <Row style={{ margin: "2vh -1vw" }}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleDiet(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Diet Options"}
+                  </span>
+                </Button>
+
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleDiets
+                        ? this.state.diets.map((diet) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {diet.name}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={diet._id}
+                                  onChange={(e) => this.checkBox3(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+              <Row style={{ margin: "2vh -1vw" }}>
+                <Button
+                  as="Link"
+                  className="features-buttons"
+                  onClick={(e) => this.toggleEthic(e)}
+                >
+                  <span
+                    className="fb-txt spotted-byuser"
+                    style={{ color: "#fff" }}
+                  >
+                    {"Ethics"}
+                  </span>
+                </Button>
+                <Col>
+                  <ul>
+                    <li className="checkbox-li grid features">
+                      {this.state.spot.toggleEthics
+                        ? this.state.ethics.map((ethic) => {
+                            return (
+                              <Form.Label className="checkbox-container">
+                                {ethic.type}
+                                <input
+                                  className="checkbox"
+                                  type="checkbox"
+                                  value={ethic._id}
+                                  onChange={(e) => this.checkBox4(e)}
+                                />
+                                <span className="checkmark"></span>
+                              </Form.Label>
+                            );
+                          })
+                        : null}
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+            </Col>
+            <Row>
+              <Link
+                className="accent-co"
+                to="/landing"
+                style={{
+                  textDecoration: " none",
+                  backgroundColor: "transparent",
+                  fontFamily: "Jost",
+                  textTransform: "uppercase",
+                  letterSpacing: "4px",
+                  margin: "3vh",
+                  fontSize: ".8em",
+                }}
+              >
+                {"< Back"}
+              </Link>
+            </Row>
+            <div>
+              <Button
+                onClick={(e) => this.createPlace(e, this.state.spot)}
+                className="submit-btn"
+              >
+                Publish this spot
+              </Button>
+            </div>
+          </Form>
         </Container>
       </div>
     );
