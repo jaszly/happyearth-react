@@ -65,19 +65,20 @@ class Landing extends React.Component {
             >
               <h1
                 style={{
-                  fontFamily: "Pacifico",
+                  fontFamily: "Kodchasan",
                   color: "white",
                   fontSize: "150px",
+                  fontWeight: "200",
                   letterSpacing: "3px",
                   marginBottom: "50px",
                 }}
               >
-                {" happy earth"}
+                {" ekoh"}
               </h1>
             </div>
             <h2 class="secondary">
-              Crowd-sourced reviews of your city's most eco-friendly and
-              sustainable restaurants, shops and cafes.
+              Find eco-friendly and sustainable restaurants, shops and
+              businesses.
             </h2>
 
             <div
@@ -88,14 +89,14 @@ class Landing extends React.Component {
               <input
                 className="center-searchBox"
                 type="text"
-                placeholder="Browse by city"
+                placeholder="Start by typing a city"
                 onChange={this.search}
                 style={{
                   boxShadow: "none",
-                  fontFamily: "Jost",
+                  fontFamily: "Kodchasan",
                   fontSize: "22px",
                   letterSpacing: "3px",
-                  color: "black",
+                  color: "white",
                   padding: "5px",
                 }}
               ></input>
@@ -105,15 +106,32 @@ class Landing extends React.Component {
 						1. insert dropdown with results
 						2. each option has onClick={this.selectOption}
 						*/}
-              <div className={this.dropdownStatus()}>
+              <div
+                className={this.dropdownStatus()}
+                style={{
+                  backgroundColor: "#9aa07e",
+                  border: "1px solid #e9ecef",
+                  borderTop: "none",
+                  margin: "-6vw 2vw 0 1vw",
+                }}
+              >
                 {this.state.options.map((option) => {
                   return (
                     <div
                       className="option"
                       onClick={this.selectOption}
                       id={option}
+                      style={{
+                        color: "white",
+                        fontFamily: "Kodchasan",
+                        padding: "2vh 2vw",
+                        margin: "2vh 2vw",
+                      }}
                     >
-                      <i class="fas fa-map-marker-alt"></i>
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style={{ color: "white" }}
+                      ></i>
                       {option}
                     </div>
                   );
