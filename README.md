@@ -2,7 +2,7 @@
 
 Happy Earth is a web app for viewing eco friendly businesses shops, stores, and restaurants in the city of your choice. 
 ![img](https://github.com/jaszly/happyearth-react/blob/master/src/images/github-demo.png)
-![img](https://github.com/jaszly/happyearth-react/blob/master/src/images/github-demo.png)
+![img](https://github.com/jaszly/happyearth-react/blob/master/src/images/github-login.png)
 
 ## Setup
 
