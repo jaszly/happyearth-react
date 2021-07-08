@@ -47,6 +47,13 @@ h2,
   letter-spacing: 5px;
   margin: 0 20vw;
 }
+h3,
+.thirdly {
+  font-family: "Kodchasan";
+  color: #545b62;
+  text-transform: capitalize;
+  padding: 15vh 0 4vh;
+}
 
 /* center box around 2nd row content */
 .center-box {

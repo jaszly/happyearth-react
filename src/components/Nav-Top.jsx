@@ -40,22 +40,28 @@ class TopNav extends React.Component {
   render() {
     return (
       <>
-        <Navbar className="justify-content-end" style={{ paddingTop: "25px" }}>
+        <Navbar className="justify-content-end " style={{ paddingTop: "25px" }}>
           <Nav.Item>
-            <Button variant="outline-light">
+            <Button variant="outline-light" style={{ fontFamily: "Kodchasan" }}>
               <i className="fas fa-globe-africa"></i>
               Browse
             </Button>
           </Nav.Item>
           <Nav.Item>
             <Link to={`/create`}>
-              <Button variant="outline-light">
+              <Button
+                variant="outline-light"
+                style={{ fontFamily: "Kodchasan" }}
+              >
                 <i className="far fa-edit"></i>
                 Post
               </Button>
             </Link>
             <Link to={`/login`}>
-              <Button variant="outline-light">
+              <Button
+                variant="outline-light"
+                style={{ fontFamily: "Kodchasan" }}
+              >
                 <i className="far fa-user"></i>
                 Account
               </Button>

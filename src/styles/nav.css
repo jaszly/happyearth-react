@@ -5,31 +5,34 @@
 } */
 
 /* landing page nav bar hereeeeeeeee */
+.nav-styles {
+  font-family: "Kodchasan";
+}
 .topnav {
-	overflow: hidden;
-	float: right;
-	padding: 0;
-	margin: 0;
+  overflow: hidden;
+  float: right;
+  padding: 0;
+  margin: 0;
 }
 
 .topnav a {
-	float: left;
-	color: white;
-	/* padding: 14px 16px; */
-	text-decoration: none;
-	font-size: 25px;
-	display: inline-flex;
-	overflow: hidden;
-	text-decoration: none;
+  float: left;
+  color: white;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  font-size: 25px;
+  display: inline-flex;
+  overflow: hidden;
+  text-decoration: none;
 }
 
 /* all on hover */
 .topnav a:hover {
-	border-style: solid;
+  border-style: solid;
 }
 
 .join a:hover {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 /* landing page nav bar endsssssssssss */
 

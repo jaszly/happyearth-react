@@ -66,7 +66,7 @@ class Landing extends React.Component {
               <h1
                 style={{
                   fontFamily: "Kodchasan",
-                  color: "white",
+                  color: "#E9E5DC",
                   fontSize: "150px",
                   fontWeight: "200",
                   letterSpacing: "3px",
@@ -76,7 +76,7 @@ class Landing extends React.Component {
                 {" ekoh"}
               </h1>
             </div>
-            <h2 class="secondary">
+            <h2 className="secondary" style={{ color: "#E9E5DC" }}>
               Find eco-friendly and sustainable restaurants, shops and
               businesses.
             </h2>
@@ -126,7 +126,7 @@ class Landing extends React.Component {
                         fontFamily: "Kodchasan",
                         padding: "2vh 2vw",
                         margin: "2vh 2vw",
-                        fontSize: "1.8em",
+                        fontSize: "1.4em",
                       }}
                     >
                       <i
@@ -142,39 +142,32 @@ class Landing extends React.Component {
           </div>
         </div>
 
-        <div>
+        <div style={{ backgroundColor: "#E9E5DC" }}>
           <div>
-            <h2 className="secondary" style={{ color: "black" }}>
-              Browse Happy Earth's Top Reviewed Cities:
+            <h2
+              className="secondary"
+              style={{
+                color: "#9aa07e",
+                textAlign: "center",
+                paddingTop: "10vh",
+              }}
+            >
+              Shop Better. Dine Better. Support Sustainability.{" "}
             </h2>
             <Container>
-              <Row>
-                {" "}
+              <h3 className="thirdly">sustainable shopping</h3>
+
+              <Row style={{ paddingBottom: "40vh" }}>
                 <Col>
-                  <Card
-                    style={{
-                      // width: "10vw",
-                      // height: "10vh",
-                      background: "#FFFFFF",
-                      border: "1px solid #E0E0E0",
-                      borderRadius: "30px",
-                      margin: "30px 100px",
-                    }}
-                  >
+                  <Card className="landing-pg-cards">
                     <Card.Body>
-                      <Button
-                        variant="link"
-                        style={{
-                          height: "30px",
-                          borderRadius: "12px",
-                          borderColor: "#000",
-                          marginLeft: "1px",
-                          padding: "0 3px 3px 0",
-                        }}
-                      >
-                        $type of spot{" "}
-                      </Button>
                       <Card.Title style={{ marginTop: "10px" }}></Card.Title>
+                      <Card.Img src="https://s.hdnux.com/photos/40/00/33/8390340/9/rawImage.jpg" />
+                      <h4>Shopping Bulk: </h4>
+                      <h5>
+                        Discover where to start or enhance your zero waste
+                        journey
+                      </h5>
                     </Card.Body>
                   </Card>
                 </Col>
@@ -186,7 +179,6 @@ class Landing extends React.Component {
                       background: "#FFFFFF",
                       border: "1px solid #E0E0E0",
                       borderRadius: "30px",
-                      margin: "30px 100px",
                     }}
                   >
                     <Card.Body>
@@ -203,6 +195,9 @@ class Landing extends React.Component {
                         $type of spot{" "}
                       </Button>
                       <Card.Title style={{ marginTop: "10px" }}></Card.Title>
+                      <Card.Img src="https://s.hdnux.com/photos/40/00/33/8390340/9/rawImage.jpg" />
+                      <h4> Top Rated Secondhand Shops </h4>
+                      <h5> Around the world</h5>
                     </Card.Body>
                   </Card>{" "}
                 </Col>
@@ -214,7 +209,6 @@ class Landing extends React.Component {
                       background: "#FFFFFF",
                       border: "1px solid #E0E0E0",
                       borderRadius: "30px",
-                      margin: "30px 100px",
                     }}
                   >
                     <Card.Body>
@@ -225,7 +219,6 @@ class Landing extends React.Component {
                           borderRadius: "12px",
                           borderColor: "#000",
                           marginLeft: "1px",
-                          padding: "0 3px 3px 0",
                         }}
                       >
                         $type of spot{" "}
